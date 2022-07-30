@@ -6,7 +6,8 @@ import {ClientRequestsComponent} from "./components/client-requests/client-reque
 const routes: Routes = [
   {
     path: "", component: HomeLayoutComponent, children: [
-      {path: "", component: ClientRequestsComponent}
+      {path: "", component: ClientRequestsComponent, pathMatch: "full"},
+      {path: "client-request", component: ClientRequestsComponent}
     ]
   }
 
