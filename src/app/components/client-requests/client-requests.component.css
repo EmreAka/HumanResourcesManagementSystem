@@ -1,0 +1,9 @@
+.part-one {
+  border: 0px solid #3E497A;
+  border-bottom-width: 3px;
+  cursor: pointer;
+}
+
+.part-two {
+  cursor: pointer;
+}

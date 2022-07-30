@@ -1,0 +1,98 @@
+.client-request {
+  width: 844px;
+  margin-top: 3rem;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0px 0px 20px 1px #3E497A;
+}
+
+.client-request-header {
+  background-color: #3E497A;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.client-request-content {
+  background-color: white;
+  color: black;
+}
+
+.client-request-content-title {
+  margin-left: 2rem;
+  padding-top: 3rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.client-request-content-description {
+  margin-left: 2rem;
+  margin-right: 0.5rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.client-request-footer {
+  background-color: rgb(249, 250, 251);
+  display: flex;
+  justify-content: space-between;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.client-request-footer-description {
+  display: flex;
+  color: black;
+  margin-right: 2rem;
+}
+
+.client-request-footer-description-item{
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.history {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: rgb(244, 245, 247);
+  border-radius: 5px;
+  color: black;
+  opacity: 0.7;
+  margin-left: 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.send-message {
+  width: 7rem;
+  text-align: center;
+  height: 2.5rem;
+  background-color: #3E497A;
+  border: 0px;
+  color: white;
+  border-radius: 3px;
+  margin-right: 0.5rem;
+  border: 1px solid;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.send-offer {
+  width: 7rem;
+  text-align: center;
+  height: 2.5rem;
+  background-color: #D61C4E;
+  color: white;
+  border: 0px;
+  border-radius: 3px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+}
