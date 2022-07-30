@@ -1,0 +1,65 @@
+.card{
+  display: flex;
+  flex-direction: column;
+  background-color: #3E497A;
+  border-radius: 5px;
+  padding: 0.7rem;
+
+  box-shadow: 0px 0px 20px 1px #3E497A;
+
+  cursor: pointer;
+
+  position: relative;
+}
+
+.card img{
+  height: 260px;
+}
+
+.title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title h1{
+  color: white;
+  font-size: 0.9rem;
+}
+
+.title p{
+  font-size: 1.5rem;
+  color: lightgreen;
+  font-weight: 1000;
+}
+
+.description p{
+  color: white;
+}
+
+.tool-bar{
+  background-color: #F9F2ED;
+  display: flex;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  gap: 0.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0px 10px 0px 10px;
+}
+
+.tool-bar i{
+  font-size: 2rem;
+}
+
+.current-state{
+  background-color: lightgreen;
+  padding: 5px 10px 5px 0px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 100px;
+}
+

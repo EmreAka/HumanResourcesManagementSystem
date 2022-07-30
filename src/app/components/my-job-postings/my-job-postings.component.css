@@ -1,0 +1,30 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.create-new-job{
+  width: 9rem;
+  text-align: center;
+  height: 3rem;
+  background-color: #D61C4E;
+  border: 0px;
+  color: white;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.page-description{
+  opacity: 0.7;
+}
+
+.job-postings-container{
+  padding-top: 3rem;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  gap: 1em;
+  justify-items: center;
+  margin-bottom: 2rem;
+}

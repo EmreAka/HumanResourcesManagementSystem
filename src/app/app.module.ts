@@ -8,6 +8,8 @@ import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component
 import { SidebarComponent } from './layouts/home-layout/sidebar/sidebar.component';
 import { ClientRequestsComponent } from './components/client-requests/client-requests.component';
 import { ClientRequestComponent } from './components/client-requests/components/client-request/client-request.component';
+import { MyJobPostingsComponent } from './components/my-job-postings/my-job-postings.component';
+import { JobPostingCardComponent } from './components/my-job-postings/components/job-posting-card/job-posting-card.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ClientRequestComponent } from './components/client-requests/components/
     HomeLayoutComponent,
     SidebarComponent,
     ClientRequestsComponent,
-    ClientRequestComponent
+    ClientRequestComponent,
+    MyJobPostingsComponent,
+    JobPostingCardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,31 @@
+<div style=";margin-top: 3rem; margin-left: 3rem; width: 100%;">
+  <div class="header">
+    <h1 style="font-weight: 300;">
+      İş <span style="font-weight: 600;">İlanlarım</span>
+    </h1>
+    <button class="create-new-job">Yeni İş İlanı Oluştur</button>
+  </div>
+  <p class="page-description">Tüm iş ilanlarını buradan takip edebilir, yönetebilir ve yeni iş ilanları oluşturabilirsin.</p>
+
+  <div style="display: flex; justify-content: space-between">
+    <select style="padding: 1rem; padding-right: 3rem; padding-left: 3rem; margin-top: 3rem; font-weight: 600">
+      <option>Tüm İlanlarımı Göster</option>
+      <option>Yayındaki İlanlarımı Göster</option>
+    </select>
+
+    <select style="padding: 1rem;  margin-top: 3rem; font-weight: 600">
+      <option>Aktif / Pasif</option>
+      <option>Hepsini Aktif Yap</option>
+      <option>Hepsini Pasif Yap</option>
+    </select>
+  </div>
+
+  <div class="job-postings-container">
+    <app-job-posting-card></app-job-posting-card>
+    <app-job-posting-card></app-job-posting-card>
+    <app-job-posting-card></app-job-posting-card>
+    <app-job-posting-card></app-job-posting-card>
+    <app-job-posting-card></app-job-posting-card>
+
+  </div>
+</div>
