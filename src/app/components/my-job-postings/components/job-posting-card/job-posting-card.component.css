@@ -13,7 +13,7 @@
 }
 
 .card img{
-  height: 260px;
+  max-width: 280px;
 }
 
 .title{
