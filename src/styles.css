@@ -5,3 +5,9 @@
   margin: 0;
   font-family: 'Poppins', sans-serif;
 }
+
+app-home-layout{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
