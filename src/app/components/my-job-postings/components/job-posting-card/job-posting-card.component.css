@@ -54,8 +54,9 @@
 }
 
 .current-state{
+  font-weight: 600;
   background-color: lightgreen;
-  padding: 5px 10px 5px 0px;
+  padding: 5px 10px 5px 10px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   position: absolute;
