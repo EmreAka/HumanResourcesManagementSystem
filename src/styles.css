@@ -6,12 +6,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
-app-home-layout{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 ::-webkit-scrollbar {
   width: 5px;
 }

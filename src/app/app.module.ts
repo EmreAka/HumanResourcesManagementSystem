@@ -12,6 +12,7 @@ import { MyJobPostingsComponent } from './components/my-job-postings/my-job-post
 import { JobPostingCardComponent } from './components/my-job-postings/components/job-posting-card/job-posting-card.component';
 import { CreateJobPostingComponent } from './components/create-job-posting/create-job-posting.component';
 import { CategoryComponent } from './components/create-job-posting/components/category/category.component';
+import { CreateJobPostingLayoutComponent } from './layouts/create-job-posting-layout/create-job-posting-layout.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CategoryComponent } from './components/create-job-posting/components/ca
     MyJobPostingsComponent,
     JobPostingCardComponent,
     CreateJobPostingComponent,
-    CategoryComponent
+    CategoryComponent,
+    CreateJobPostingLayoutComponent
   ],
   imports: [
     BrowserModule,

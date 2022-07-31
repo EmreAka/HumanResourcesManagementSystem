@@ -8,5 +8,5 @@
 <div class="categories">
   <app-category *ngFor="let category of categories; let i = index" [active]="category.active"
                 [freelancer]="category.freelancer" [title]="category.title"
-                [categoryImageUrl]="category.url" [style]="getStyle(i)"></app-category>
+                [categoryImageUrl]="category.url" [style]="getStyle(category.id)" (click)="setSelectedCategory(category)"></app-category>
 </div>

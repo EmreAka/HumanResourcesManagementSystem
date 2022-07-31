@@ -52,6 +52,8 @@ export class CreateJobPostingComponent implements OnInit {
     url: "https://res.cloudinary.com/emreaka/image/upload/v1659257826/samples/HRMS/xasxaxa_y88mmf.svg"
   }];
 
+  selectedCategory: Category | undefined;
+
   constructor() {
   }
 
@@ -59,10 +61,14 @@ export class CreateJobPostingComponent implements OnInit {
   }
 
   getStyle(id: number){
-    if (id == 5){
+    if (id == this.selectedCategory?.id){
       return "box-shadow: 0px 0px 20px 1px #3E497A;"
     }
     return ""
+  }
+
+  setSelectedCategory(category: Category){
+    this.selectedCategory = category;
   }
 
 }
