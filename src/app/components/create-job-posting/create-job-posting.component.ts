@@ -13,6 +13,7 @@ export class CreateJobPostingComponent implements OnInit {
   categories: any;
   softCategories: any;
   selectedCategory: any;
+  selectedSoftCategory: any;
 
   constructor(public categoryService: CategoryService) {
   }
@@ -22,7 +23,7 @@ export class CreateJobPostingComponent implements OnInit {
     this.getSoftCategories();
   }
 
-  getStyle(id: number) {
+  getStyle(id: any) {
     if (id == this.selectedCategory?.id) {
       return "box-shadow: 0px 0px 20px 1px #3E497A;"
     }
@@ -50,6 +51,11 @@ export class CreateJobPostingComponent implements OnInit {
         this.softCategories = value
       }
     })
+  }
+
+  setCurrentSoftCategory(category: any){
+    this.selectedSoftCategory = category;
+    this.categoryService.isCategorySelected = true;
   }
 
 }

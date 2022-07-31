@@ -24,7 +24,31 @@
       kategorisinin hangi alanına giriyor?</p>
   </div>
 
-  <div *ngFor="let category of this.softCategories">
-    <p>{{category.title}}</p>
+  <div class="software-categories">
+    <div class="category-container" *ngFor="let category of this.softCategories"
+         (click)="setCurrentSoftCategory(category)"
+         [class.soft-category-background-color]="category.id == this.selectedSoftCategory?.id">
+      <p>{{category.title}}</p>
+    </div>
+  </div>
+</div>
+
+<div id="stage-3" class="job-posting-details" *ngIf="this.categoryService.stage == 3">
+  <div style="margin-left: 3rem">
+    <h1 class="page-title">Başlık ve Açıklama</h1>
+    <p>Harika! Şimdi ilanını oluşturmaya başlayabilirsin. 🚀</p>
+  </div>
+
+  <div style="margin-top: 3rem; margin-left: 3rem">
+    <h1 class="page-title">Etkileyici bir başlık bul!</h1>
+    <p>
+      Başlık "Ben... " ile başlayan bir cümle olmalı ve bir fiille bitmelidir. Başlığın sonunda herhangi bir noktalama
+      işareti kullanmamalısın.</p>
+
+    <div class="job-posting-title-container">
+      <p style="margin-right: 10px; margin-left: 1rem">Ben,</p>
+      <input class="job-posting-title" placeholder=" uzman olduğum bir konuda..."/>
+    </div>
+
   </div>
 </div>
