@@ -1,0 +1,34 @@
+.card{
+  padding: 1rem;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.card img{
+  height: 70px;
+  width: 70px;
+}
+
+.card-content{
+  padding-top: 1rem;
+  border-radius: 10px;
+}
+
+.card-content-title{
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.card-content-active-jobs{
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.card-content-freelancer{
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+span{
+  font-weight: 600;
+}

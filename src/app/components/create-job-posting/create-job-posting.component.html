@@ -1,0 +1,12 @@
+<h1 class="page-title">Hangi kategoride hizmet vermek istiyorsun?</h1>
+
+<p>Hadi, başlayalım. 😎 Yeteneğini sergilemek istediğin işin kategorisini belirle.
+
+  Nasıl iş ilanı oluşturacağını merak mı ediyorsun? Haydi gel kısa bir video ile nasıl iş ilanı oluşturacağına bir göz
+  atalım!</p>
+
+<div class="categories">
+  <app-category *ngFor="let category of categories; let i = index" [active]="category.active"
+                [freelancer]="category.freelancer" [title]="category.title"
+                [categoryImageUrl]="category.url" [style]="getStyle(i)"></app-category>
+</div>

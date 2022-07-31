@@ -1,0 +1,16 @@
+.page-title{
+  margin-top: 2.5rem;
+}
+
+.categories{
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.card-shadow{
+  box-shadow: 0px 0px 20px 1px #3E497A;
+}
