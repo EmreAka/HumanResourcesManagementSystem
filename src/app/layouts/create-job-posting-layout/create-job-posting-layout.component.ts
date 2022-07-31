@@ -20,4 +20,8 @@ export class CreateJobPostingLayoutComponent implements OnInit {
     return "disabled"
   }
 
+  nextStage(){
+    this.categoryService.stage += 1;
+  }
+
 }

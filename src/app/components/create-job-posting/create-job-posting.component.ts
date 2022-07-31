@@ -11,31 +11,44 @@ import {DocumentData} from "@angular/fire/compat/firestore";
 export class CreateJobPostingComponent implements OnInit {
 
   categories: any;
+  softCategories: any;
   selectedCategory: any;
 
-  constructor(private categoryService: CategoryService) {
+  constructor(public categoryService: CategoryService) {
   }
 
   ngOnInit(): void {
-    this.getCategories()
+    this.getCategories();
+    this.getSoftCategories();
   }
 
-  getStyle(id: number){
-    if (id == this.selectedCategory?.id){
+  getStyle(id: number) {
+    if (id == this.selectedCategory?.id) {
       return "box-shadow: 0px 0px 20px 1px #3E497A;"
     }
     return ""
   }
 
-  setSelectedCategory(category: Category){
+  setSelectedCategory(category: Category) {
     this.selectedCategory = category;
     this.categoryService.selectedCategory = category;
     this.categoryService.isCategorySelected = true;
   }
 
-  getCategories(){
+  getCategories() {
     this.categoryService.getCategories().subscribe({
-      next: (value) => {this.categories = value; console.log(value);}
+      next: (value) => {
+        this.categories = value;
+        console.log(value);
+      }
+    })
+  }
+
+  getSoftCategories() {
+    this.categoryService.getSoftwareDevelopmentCategories().subscribe({
+      next: (value) => {
+        this.softCategories = value
+      }
     })
   }
 
