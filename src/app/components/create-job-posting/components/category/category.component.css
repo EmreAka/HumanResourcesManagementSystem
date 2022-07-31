@@ -1,8 +1,8 @@
-.card{
-  padding: 1rem;
+.card {
   border-radius: 10px;
   white-space: nowrap;
   cursor: pointer;
+  padding: 1rem 1rem 0rem;
 }
 
 .card img{
@@ -18,15 +18,17 @@
 .card-content-title{
   font-weight: 600;
   border-radius: 10px;
+  font-size: 0.8rem;
 }
 
 .card-content-active-jobs{
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   opacity: 0.7;
 }
 
 .card-content-freelancer{
-  font-size: 0.9rem;
+  margin-top: 10px;
+  font-size: 0.7rem;
   opacity: 0.7;
 }
 

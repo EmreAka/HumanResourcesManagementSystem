@@ -1,18 +1,47 @@
-.container{
+.container {
   max-width: 1140px;
   display: flex;
   margin: auto;
+  height: 100vh;
 }
 
-.form-footer{
+.form-footer {
   display: flex;
   justify-content: space-between;
   position: sticky;
   bottom: 0px;
   width: 100%;
-  height: 2rem;
+  height: 4rem;
+  background-color: #21325E;
+  color: white;
 }
 
-.form-footer-content{
+.form-footer-content {
   display: flex;
+}
+
+.form-footer-description {
+  margin-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.form-footer-category {
+  margin-left: 5rem;
+}
+
+.button {
+  font-size: 1.3rem;
+  font-weight: 600;
+  width: 10rem;
+  height: 100%;
+  text-align: center;
+  background-color: #F1D00A;
+  border: 0px;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
 }

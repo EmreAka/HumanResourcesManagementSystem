@@ -1,11 +1,13 @@
-<h1 class="page-title">Hangi kategoride hizmet vermek istiyorsun?</h1>
+<div style="margin-left: 3rem">
+  <h1 class="page-title">Hangi kategoride hizmet vermek istiyorsun?</h1>
 
-<p>Hadi, başlayalım. 😎 Yeteneğini sergilemek istediğin işin kategorisini belirle.
+  <p>Hadi, başlayalım. 😎 Yeteneğini sergilemek istediğin işin kategorisini belirle.
 
-  Nasıl iş ilanı oluşturacağını merak mı ediyorsun? Haydi gel kısa bir video ile nasıl iş ilanı oluşturacağına bir göz
-  atalım!</p>
+    Nasıl iş ilanı oluşturacağını merak mı ediyorsun? Haydi gel kısa bir video ile nasıl iş ilanı oluşturacağına bir göz
+    atalım!</p>
+</div>
 
-<div class="categories">
+<div class="categories" style="margin-left: 3rem">
   <app-category *ngFor="let category of categories; let i = index" [active]="category.active"
                 [freelancer]="category.freelancer" [title]="category.title"
                 [categoryImageUrl]="category.url" [style]="getStyle(category.id)" (click)="setSelectedCategory(category)"></app-category>
