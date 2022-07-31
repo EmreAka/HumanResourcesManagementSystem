@@ -10,6 +10,9 @@ export class ClientRequestComponent implements OnInit {
   @Input() name: string | undefined;
   @Input() title: string | undefined;
   @Input() description: string | undefined;
+  @Input() time: string | undefined;
+  @Input() budget: string | undefined;
+  @Input() requests: string | undefined;
 
   constructor() { }
 

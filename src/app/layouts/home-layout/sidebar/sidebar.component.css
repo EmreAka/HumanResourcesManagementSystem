@@ -12,6 +12,10 @@
   white-space: nowrap;
 }
 
+.side-menu-item:hover{
+  font-weight: 600;
+}
+
 .side-menu-item span{
   opacity: 0.6;
 }
