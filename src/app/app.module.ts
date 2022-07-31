@@ -18,6 +18,9 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+import { LoginComponent } from './components/login/login.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -31,11 +34,14 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     JobPostingCardComponent,
     CreateJobPostingComponent,
     CategoryComponent,
-    CreateJobPostingLayoutComponent
+    CreateJobPostingLayoutComponent,
+    LoginLayoutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
