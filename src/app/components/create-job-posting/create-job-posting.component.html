@@ -33,18 +33,17 @@
   </div>
 </div>
 
-<div id="stage-3" class="job-posting-details" *ngIf="this.categoryService.stage == 3">
+<div id="stage-3" class="job-posting-details" *ngIf="this.categoryService.stage == 3" style="margin-bottom: 50rem">
   <div style="margin-left: 3rem">
     <h1 class="page-title">Başlık ve Açıklama</h1>
     <p>Harika! Şimdi ilanını oluşturmaya başlayabilirsin. 🚀</p>
   </div>
 
-  <div style="margin-top: 3rem; margin-left: 3rem">
+  <form style="margin-top: 3rem; margin-left: 3rem">
     <h1 class="page-title">Etkileyici bir başlık bul!</h1>
     <p>
       Başlık "Ben... " ile başlayan bir cümle olmalı ve bir fiille bitmelidir. Başlığın sonunda herhangi bir noktalama
       işareti kullanmamalısın.</p>
-
     <div class="job-posting-title-container">
       <p style="margin-right: 10px; margin-left: 1rem">Ben,</p>
       <input class="job-posting-title" placeholder=" uzman olduğum bir konuda..."/>
@@ -52,12 +51,23 @@
 
     <h1 class="page-title">Yapacağın işin detaylarını minimum 150 karakterle açıkla</h1>
     <div class="job-posting-title-container">
-      <textarea style="resize: vertical; margin-left: 1rem" class="job-posting-title" placeholder="Minimum 150 karakterden oluşacak şekilde yapacağın detaylarını anlatır mısın?"></textarea>
+      <textarea style="resize: vertical; margin-left: 1rem" class="job-posting-title"
+                placeholder="Minimum 150 karakterden oluşacak şekilde yapacağın detaylarını anlatır mısın?"></textarea>
     </div>
 
     <h1 class="page-title">Siparişe başlaman için gerekenler</h1>
     <div class="job-posting-title-container">
-      <textarea style="resize: vertical; margin-left: 1rem" class="job-posting-title" placeholder="Siparişe hemen başlamak için ihtiyacın olacakları yazar mısın?"></textarea>
+      <textarea style="resize: vertical; margin-left: 1rem" class="job-posting-title"
+                placeholder="Siparişe hemen başlamak için ihtiyacın olacakları yazar mısın?"></textarea>
     </div>
-  </div>
+
+    <h1 class="page-title">Proje için istediğin ücret</h1>
+    <div class="job-posting-title-container">
+      <input style="margin-left: 1rem" class="job-posting-title" placeholder="Ücretinizi buraya girebilirsiniz." type="number"/>
+    </div>
+
+    <div style="height: 5rem">
+
+    </div>
+  </form>
 </div>
