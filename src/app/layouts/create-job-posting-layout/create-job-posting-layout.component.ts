@@ -21,9 +21,13 @@ export class CreateJobPostingLayoutComponent implements OnInit {
   }
 
   nextStage(){
-    if (this.categoryService.isCategorySelected){
+    if (this.categoryService.isCategorySelected && !(this.categoryService.stage == 3)){
       this.categoryService.stage += 1;
       this.categoryService.isCategorySelected = false;
+    }
+
+    else if (this.categoryService.stage == 3){
+      console.log("Yayınlanacak!")
     }
   }
 

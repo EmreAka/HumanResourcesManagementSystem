@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {Category} from "../../models/Category";
-import {CategoryService} from "../../services/category.service";
-import {DocumentData} from "@angular/fire/compat/firestore";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Auth} from "@angular/fire/auth";
+import { Component, OnInit } from '@angular/core';
+import { Category } from "../../models/Category";
+import { CategoryService } from "../../services/category.service";
+import { DocumentData } from "@angular/fire/compat/firestore";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Auth } from "@angular/fire/auth";
+import { JobPostingService } from 'src/app/services/job-posting.service';
 
 @Component({
   selector: 'app-create-job-posting',
@@ -19,7 +20,8 @@ export class CreateJobPostingComponent implements OnInit {
 
   jobPostingForm: FormGroup;
 
-  constructor(public categoryService: CategoryService, private formBuilder: FormBuilder, private auth: Auth) {
+  constructor(public categoryService: CategoryService, private formBuilder: FormBuilder, 
+    private auth: Auth, public jobPostingService: JobPostingService) {
   }
 
   ngOnInit(): void {
@@ -27,11 +29,11 @@ export class CreateJobPostingComponent implements OnInit {
     this.getSoftCategories();
 
     this.createForm();
-    this.jobPostingForm.controls['userId'].setValue(this.auth.currentUser?.uid);
-    this.jobPostingForm.valueChanges.subscribe({
+    this.jobPostingService.jobPostingForm.controls['userId'].setValue(this.auth.currentUser?.uid);
+    this.jobPostingService.jobPostingForm.valueChanges.subscribe({
       next: (value) => {
         console.log(value);
-        if (this.jobPostingForm.valid) {
+        if (this.jobPostingService.jobPostingForm.valid) {
           this.categoryService.isCategorySelected = true;
         }
       }
@@ -40,7 +42,7 @@ export class CreateJobPostingComponent implements OnInit {
   }
 
   createForm() {
-    this.jobPostingForm = this.formBuilder.group({
+    this.jobPostingService.jobPostingForm = this.formBuilder.group({
       userId: ["", Validators.required],
       categoryId: ["", Validators.required],
       subCategoryId: ["", Validators.required],
@@ -63,7 +65,7 @@ export class CreateJobPostingComponent implements OnInit {
     this.categoryService.selectedCategory = category;
     this.categoryService.isCategorySelected = true;
 
-    this.jobPostingForm.controls['categoryId'].setValue(this.selectedCategory.id);
+    this.jobPostingService.jobPostingForm.controls['categoryId'].setValue(this.selectedCategory.id);
   }
 
   getCategories() {
@@ -86,7 +88,7 @@ export class CreateJobPostingComponent implements OnInit {
   setCurrentSoftCategory(category: any) {
     this.selectedSoftCategory = category;
     this.categoryService.isCategorySelected = true;
-    this.jobPostingForm.controls['subCategoryId'].setValue(this.selectedSoftCategory.id);
+    this.jobPostingService.jobPostingForm.controls['subCategoryId'].setValue(this.selectedSoftCategory.id);
   }
 
 }
