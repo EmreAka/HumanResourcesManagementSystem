@@ -3,6 +3,7 @@ import {Category} from "../../models/Category";
 import {CategoryService} from "../../services/category.service";
 import {DocumentData} from "@angular/fire/compat/firestore";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Auth} from "@angular/fire/auth";
 
 @Component({
   selector: 'app-create-job-posting',
@@ -18,7 +19,7 @@ export class CreateJobPostingComponent implements OnInit {
 
   jobPostingForm: FormGroup;
 
-  constructor(public categoryService: CategoryService, private formBuilder: FormBuilder) {
+  constructor(public categoryService: CategoryService, private formBuilder: FormBuilder, private auth: Auth) {
   }
 
   ngOnInit(): void {
@@ -26,12 +27,19 @@ export class CreateJobPostingComponent implements OnInit {
     this.getSoftCategories();
 
     this.createForm();
-    if (this.jobPostingForm.valid){
-      this.categoryService.isCategorySelected = true;
-    }
+    this.jobPostingForm.controls['userId'].setValue(this.auth.currentUser?.uid);
+    this.jobPostingForm.valueChanges.subscribe({
+      next: (value) => {
+        console.log(value);
+        if (this.jobPostingForm.valid) {
+          this.categoryService.isCategorySelected = true;
+        }
+      }
+    })
+
   }
 
-  createForm(){
+  createForm() {
     this.jobPostingForm = this.formBuilder.group({
       userId: ["", Validators.required],
       categoryId: ["", Validators.required],
@@ -54,6 +62,8 @@ export class CreateJobPostingComponent implements OnInit {
     this.selectedCategory = category;
     this.categoryService.selectedCategory = category;
     this.categoryService.isCategorySelected = true;
+
+    this.jobPostingForm.controls['categoryId'].setValue(this.selectedCategory.id);
   }
 
   getCategories() {
@@ -73,9 +83,10 @@ export class CreateJobPostingComponent implements OnInit {
     })
   }
 
-  setCurrentSoftCategory(category: any){
+  setCurrentSoftCategory(category: any) {
     this.selectedSoftCategory = category;
     this.categoryService.isCategorySelected = true;
+    this.jobPostingForm.controls['subCategoryId'].setValue(this.selectedSoftCategory.id);
   }
 
 }
