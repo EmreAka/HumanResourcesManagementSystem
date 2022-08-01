@@ -10,14 +10,14 @@ import {canActivate, redirectLoggedInTo, redirectUnauthorizedTo} from "@angular/
 
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
-const redirectLoggedInToHome = () => redirectLoggedInTo(['']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['/']);
 const routes: Routes = [
   {
     path: "", component: HomeLayoutComponent, children: [
       {path: "", component: ClientRequestsComponent, pathMatch: "full"},
       {path: "client-request", component: ClientRequestsComponent},
       {path: "my-job-postings", component: MyJobPostingsComponent},
-    ]
+    ],
   },
   {
     path: "create-job-postings", component: CreateJobPostingLayoutComponent, children: [

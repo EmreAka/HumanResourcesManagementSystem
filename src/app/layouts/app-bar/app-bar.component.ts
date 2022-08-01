@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-app-bar',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppBarComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private authService: AuthService) {
   }
 
+  ngOnInit(): void {
+    this.authService.getUserInformationFromLocalStorage();
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+
+  isAuthenticated(){
+    debugger;
+    if (this.authService.isAuthenticated()){
+      return true;
+    }
+    return false;
+  }
 }
+
+

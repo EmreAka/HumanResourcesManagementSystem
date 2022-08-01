@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, UntypedFormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import {AuthService} from "../../services/auth.service";
 export class LoginComponent implements OnInit {
   credentials: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private auth: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private auth: AuthService, private router: Router) { }
 
   get email(): string | any{
     return this.credentials.value['email'];
@@ -48,12 +49,10 @@ export class LoginComponent implements OnInit {
   async login() {
     //const loading = await this.loadingController.create();
     //await loading.present();
-
     const user = await this.auth.login(this.email, this.password);
     //await loading.dismiss();
     if (user) {
-      console.log(user)
-      //this.router.navigateByUrl('/home', { replaceUrl: true });
+      await this.router.navigateByUrl('/', { replaceUrl: true });
     } else {
       console.log("error")
       //this.showAlert('Login failed', 'Please try again!');

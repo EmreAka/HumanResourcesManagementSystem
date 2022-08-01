@@ -1,12 +1,15 @@
 <nav class="nav-container">
-  <h1 class="nav-title">HRMS</h1>
+  <h1 class="nav-title" [routerLink]="['']">HRMS</h1>
   <div class="search-container">
     <i class="bi bi-search"></i>
     <input placeholder="Arama yap..." class="nav-search"/>
   </div>
-  <div class="nav-end">
+  <div class="nav-end" *ngIf="!isAuthenticated()">
     <button class="nav-login" [routerLink]="['/login']">Giriş</button>
     <button class="nav-register">Kaydol</button>
+  </div>
+  <div class="nav-end" *ngIf="isAuthenticated()">
+    <button class="nav-register" (click)="logout()">Logout</button>
   </div>
 </nav>
 
@@ -19,6 +22,5 @@
     <li class="nav-item"><a>Ses & Müzik</a></li>
     <li class="nav-item"><a>Yazılım & Teknoloji</a></li>
     <li class="nav-item"><a>İş ve Yönetim</a></li>
-
   </ul>
 </div>
