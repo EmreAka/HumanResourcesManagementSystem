@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Category} from "../../models/Category";
 import {CategoryService} from "../../services/category.service";
 import {DocumentData} from "@angular/fire/compat/firestore";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-create-job-posting',
@@ -15,12 +16,31 @@ export class CreateJobPostingComponent implements OnInit {
   selectedCategory: any;
   selectedSoftCategory: any;
 
-  constructor(public categoryService: CategoryService) {
+  jobPostingForm: FormGroup;
+
+  constructor(public categoryService: CategoryService, private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
     this.getCategories();
     this.getSoftCategories();
+
+    this.createForm();
+    if (this.jobPostingForm.valid){
+      this.categoryService.isCategorySelected = true;
+    }
+  }
+
+  createForm(){
+    this.jobPostingForm = this.formBuilder.group({
+      userId: ["", Validators.required],
+      categoryId: ["", Validators.required],
+      subCategoryId: ["", Validators.required],
+      title: ["", Validators.required],
+      description: ["", Validators.required],
+      requirements: ["", Validators.required],
+      price: ["", [Validators.required, Validators.min(0)]]
+    })
   }
 
   getStyle(id: any) {
