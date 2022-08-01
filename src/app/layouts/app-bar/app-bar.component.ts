@@ -20,11 +20,14 @@ export class AppBarComponent implements OnInit {
   }
 
   isAuthenticated(){
-    debugger;
     if (this.authService.isAuthenticated()){
       return true;
     }
     return false;
+  }
+
+  getUserDetail(){
+    return <string>localStorage.getItem('user-email')
   }
 }
 

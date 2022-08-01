@@ -8,7 +8,8 @@
     <button class="nav-login" [routerLink]="['/login']">Giriş</button>
     <button class="nav-register">Kaydol</button>
   </div>
-  <div class="nav-end" *ngIf="isAuthenticated()">
+  <div class="nav-end" style="align-items: center" *ngIf="isAuthenticated()">
+    <p class="email">{{this.getUserDetail()}}</p>
     <button class="nav-register" (click)="logout()">Logout</button>
   </div>
 </nav>

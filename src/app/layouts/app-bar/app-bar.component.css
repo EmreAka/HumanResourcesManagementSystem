@@ -91,6 +91,12 @@
   font-weight: 600;
 }
 
+.email{
+  color: white;
+  font-weight: 600;
+  margin-right: 2rem;
+}
+
 .nav-categories{
   display: flex;
   justify-content: center;
