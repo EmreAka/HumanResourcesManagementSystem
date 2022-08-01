@@ -5,8 +5,8 @@
     <input placeholder="Arama yap..." class="nav-search"/>
   </div>
   <div class="nav-end" *ngIf="!isAuthenticated()">
-    <button class="nav-login" [routerLink]="['/login']">Giriş</button>
-    <button class="nav-register">Kaydol</button>
+    <button class="nav-login" [routerLink]="['/auth/login']">Giriş</button>
+    <button class="nav-register" [routerLink]="['/auth/register']">Kaydol</button>
   </div>
   <div class="nav-end" style="align-items: center" *ngIf="isAuthenticated()">
     <p class="email">{{this.getUserDetail()}}</p>

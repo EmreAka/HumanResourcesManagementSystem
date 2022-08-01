@@ -7,9 +7,11 @@ import {CreateJobPostingComponent} from "./components/create-job-posting/create-
 import {CreateJobPostingLayoutComponent} from "./layouts/create-job-posting-layout/create-job-posting-layout.component";
 import {LoginComponent} from "./components/login/login.component";
 import {canActivate, redirectLoggedInTo, redirectUnauthorizedTo} from "@angular/fire/auth-guard";
+import {LoginLayoutComponent} from "./layouts/login-layout/login-layout.component";
+import {RegisterComponent} from "./components/register/register.component";
 
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/auth/login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['/']);
 const routes: Routes = [
   {
@@ -25,8 +27,9 @@ const routes: Routes = [
     ], ...canActivate(redirectUnauthorizedToLogin)
   },
   {
-    path: "login", component: LoginComponent, children: [
-      {path: "", component: LoginComponent}
+    path: "auth", component: LoginLayoutComponent, children: [
+      {path: "login", component: LoginComponent},
+      {path: "register", component: RegisterComponent}
     ], ...canActivate(redirectLoggedInToHome)
   }
 
