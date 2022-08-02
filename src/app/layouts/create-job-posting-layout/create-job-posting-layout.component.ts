@@ -18,6 +18,9 @@ export class CreateJobPostingLayoutComponent implements OnInit {
     if (this.categoryService.isCategorySelected){
       return "background-color: #F1D00A"
     }
+    if (this.categoryService.stage == 3) {
+      return "background-color: #F1D00A"
+    }
     return "disabled"
   }
 
