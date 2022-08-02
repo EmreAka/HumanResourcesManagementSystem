@@ -13,12 +13,12 @@
       <p style="font-size: 0.8rem; font-weight: 600">Adım {{this.categoryService.stage}} / 3</p>
       <p>Kategori Seçimi</p>
     </div>
-    <div *ngIf="!this.categoryService.selectedCategory" class="form-footer-category">
+    <!--<div *ngIf="!this.categoryService.selectedCategory" class="form-footer-category">
       Kategori
     </div>
     <div class="form-footer-category">
-      <p>{{this.categoryService.selectedCategory?.title}}</p>
-    </div>
+      <p>{{this.categoryService.s?.title}}</p>
+    </div>-->
   </div>
   <button class="button" [style]="getStyle()" (click)="nextStage()">{{this.categoryService.stage == 3 ? "Yayınla": "Devam"}}</button>
 </div>

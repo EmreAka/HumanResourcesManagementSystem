@@ -1,26 +1,7 @@
 <div id="stage-1" *ngIf="this.categoryService.stage == 1">
   <div style="margin-left: 3rem">
-    <h1 class="page-title">Hangi kategoride hizmet vermek istiyorsun?</h1>
-
-    <p>Hadi, başlayalım. 😎 Yeteneğini sergilemek istediğin işin kategorisini belirle.
-
-      Nasıl iş ilanı oluşturacağını merak mı ediyorsun? Haydi gel kısa bir video ile nasıl iş ilanı oluşturacağına bir
-      göz
-      atalım!</p>
-  </div>
-
-  <div class="categories" style="margin-left: 3rem">
-    <app-category *ngFor="let category of categories; let i = index" [active]="category.active"
-                  [freelancer]="category.freelancer" [title]="category.title"
-                  [categoryImageUrl]="category.url" [style]="getStyle(category.id)"
-                  (click)="setSelectedCategory(category)"></app-category>
-  </div>
-</div>
-
-<div id="stage-2" *ngIf="this.categoryService.stage == 2">
-  <div style="margin-left: 3rem">
     <h1 class="page-title">Biraz Daha Detay Alalım!</h1>
-    <p>Peki, hizmet verdiğin uzmanlık alanı <span style="font-weight: 600">{{this.selectedCategory.title}}</span>
+    <p>Peki, hizmet verdiğin uzmanlık alanı <!--<span style="font-weight: 600">{{this.selectedCategory.title}}</span>-->
       kategorisinin hangi alanına giriyor?</p>
   </div>
 
@@ -33,7 +14,7 @@
   </div>
 </div>
 
-<div id="stage-3" class="job-posting-details" *ngIf="this.categoryService.stage == 3" style="margin-bottom: 50rem">
+<div id="stage-2" class="job-posting-details" *ngIf="this.categoryService.stage == 2" style="margin-bottom: 50rem">
   <div style="margin-left: 3rem">
     <h1 class="page-title">Başlık ve Açıklama</h1>
     <p>Harika! Şimdi ilanını oluşturmaya başlayabilirsin. 🚀</p>
