@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { addDoc, collection, Firestore } from '@angular/fire/firestore';
+import {addDoc, collection, collectionData, Firestore, query, where} from '@angular/fire/firestore';
 import { FormGroup } from '@angular/forms';
 import { from } from 'rxjs';
 
@@ -15,5 +15,12 @@ export class JobPostingService {
     const jobPostingsRef = collection(this.fireStore, "/job-postings");
     const lalla = from(addDoc(jobPostingsRef, jobPosting))
     return lalla;
+  }
+
+  getJobPostings(userId: string){
+    const jobPostingsRef = collection(this.fireStore, "/job-postings");
+    const data = query(jobPostingsRef, where('userId', '==', userId))
+    const result = collectionData(data, {idField: 'id'})
+    return result;
   }
 }

@@ -21,11 +21,6 @@
   </div>
 
   <div class="job-postings-container">
-    <app-job-posting-card></app-job-posting-card>
-    <app-job-posting-card></app-job-posting-card>
-    <app-job-posting-card></app-job-posting-card>
-    <app-job-posting-card></app-job-posting-card>
-    <app-job-posting-card></app-job-posting-card>
-
+    <app-job-posting-card [description]="jobPosting.description" [price]="jobPosting.price" *ngFor="let jobPosting of jobPostings"></app-job-posting-card>
   </div>
 </div>
