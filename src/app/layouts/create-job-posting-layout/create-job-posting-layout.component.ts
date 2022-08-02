@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JobPostingService } from 'src/app/services/job-posting.service';
 import {CategoryService} from "../../services/category.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-job-posting-layout',
@@ -9,7 +10,7 @@ import {CategoryService} from "../../services/category.service";
 })
 export class CreateJobPostingLayoutComponent implements OnInit {
 
-  constructor(public categoryService: CategoryService, private jobPostingService: JobPostingService) { }
+  constructor(public categoryService: CategoryService, private jobPostingService: JobPostingService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +34,7 @@ export class CreateJobPostingLayoutComponent implements OnInit {
     else if (this.categoryService.stage == 3){
       console.log("Yayınlanacak!")
       this.jobPostingService.addJobPosting(this.jobPostingService.jobPostingForm.value).subscribe({
-        next: (value) => {console.log(`Başarılı${value}`)},
+        next: (value) => {console.log(`Başarılı${value}`); this.router.navigateByUrl('/')},
         error: (err) => {console.log('Başarısız' + ' ' + err)}
       })
     }
