@@ -11,7 +11,6 @@ import { ClientRequestComponent } from './components/client-requests/components/
 import { MyJobPostingsComponent } from './components/my-job-postings/my-job-postings.component';
 import { JobPostingCardComponent } from './components/my-job-postings/components/job-posting-card/job-posting-card.component';
 import { CreateJobPostingComponent } from './components/create-job-posting/create-job-posting.component';
-import { CategoryComponent } from './components/create-job-posting/components/category/category.component';
 import { CreateJobPostingLayoutComponent } from './layouts/create-job-posting-layout/create-job-posting-layout.component';
 import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
 import { LoginComponent } from './components/login/login.component';
@@ -31,7 +30,6 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     MyJobPostingsComponent,
     JobPostingCardComponent,
     CreateJobPostingComponent,
-    CategoryComponent,
     CreateJobPostingLayoutComponent,
     LoginLayoutComponent,
     LoginComponent,
