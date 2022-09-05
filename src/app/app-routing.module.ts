@@ -8,13 +8,14 @@ import {CreateJobPostingLayoutComponent} from "./layouts/create-job-posting-layo
 import {LoginComponent} from "./components/login/login.component";
 import {LoginLayoutComponent} from "./layouts/login-layout/login-layout.component";
 import {RegisterComponent} from "./components/register/register.component";
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {
     path: "", component: HomeLayoutComponent, children: [
       {path: "", component: ClientRequestsComponent, pathMatch: "full"},
       {path: "client-request", component: ClientRequestsComponent},
-      {path: "my-job-postings", component: MyJobPostingsComponent},
+      {path: "my-job-postings", component: MyJobPostingsComponent, canActivate: [LoginGuard]},
     ],
   },
   {
