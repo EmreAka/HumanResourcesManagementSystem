@@ -10,7 +10,8 @@ import {Router} from "@angular/router";
 })
 export class CreateJobPostingLayoutComponent implements OnInit {
 
-  constructor(public categoryService: CategoryService, private jobPostingService: JobPostingService, private router: Router) { }
+  constructor(public categoryService: CategoryService,
+    private jobPostingService: JobPostingService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +34,9 @@ export class CreateJobPostingLayoutComponent implements OnInit {
 
     else if (this.categoryService.stage == 3){
       this.jobPostingService.addJobPosting().subscribe({
-        next: (value) => console.log(value),
+        next: (value) => {
+          this.router.navigateByUrl("/");
+        },
         error: (err) => console.log(err)
       });
     }

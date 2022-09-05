@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { from } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -17,6 +17,8 @@ export class JobPostingService {
     return result;
   }
 
-  getJobPostings(){
+  getJobPostings(): Observable<any[]> {
+    var result = this.httpClient.get<any[]>(environment.apiRoute + "jobpostings/getallwithdetails")
+    return result;
   }
 }

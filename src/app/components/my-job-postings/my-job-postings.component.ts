@@ -8,7 +8,7 @@ import {JobPostingService} from "../../services/job-posting.service";
 })
 export class MyJobPostingsComponent implements OnInit {
 
-  jobPostings: any[] = [];
+  jobPostings: any[];
 
   constructor(private jobPostingService: JobPostingService) { }
 
@@ -16,7 +16,12 @@ export class MyJobPostingsComponent implements OnInit {
     this.getJobPostings();
   }
 
-  getJobPostings(){
+  getJobPostings() {
+    this.jobPostingService.getJobPostings().subscribe({
+      next: (value) => {
+        this.jobPostings = value;
+      }
+    })
   }
 
 }
