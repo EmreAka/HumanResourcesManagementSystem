@@ -4,11 +4,11 @@
     <i class="bi bi-search"></i>
     <input placeholder="Arama yap..." class="nav-search"/>
   </div>
-  <div class="nav-end">
+  <div class="nav-end" *ngIf="!authService.isAuthenticated()">
     <button class="nav-login" [routerLink]="['/auth/login']">Giriş</button>
     <button class="nav-register" [routerLink]="['/auth/register']">Kaydol</button>
   </div>
-  <div class="nav-end" style="align-items: center" *ngIf="isAuthenticated()">
+  <div class="nav-end" style="align-items: center" *ngIf="authService.isAuthenticated()">
     <p class="email">{{this.getUserDetail()}}</p>
     <button class="nav-register" (click)="logout()">Logout</button>
   </div>

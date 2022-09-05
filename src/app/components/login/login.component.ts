@@ -11,7 +11,9 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit {
   credentials: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private auth: AuthService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder,
+    private auth: AuthService,
+    private router: Router) { }
 
   get email(): string | any{
     return this.credentials.value['email'];
@@ -34,7 +36,12 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.auth.login(this.credentials.value).subscribe({
-      next: (value) => console.log(value),
+      next: (value) => {
+        localStorage.setItem("token", value.accessToken);
+        localStorage.setItem("exp", value.expiration.toString());
+        this.auth.isAuthenticated()
+        this.router.navigateByUrl("/")
+      },
       error: (err) => console.log(err)
     });
   }

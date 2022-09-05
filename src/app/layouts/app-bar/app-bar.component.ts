@@ -8,13 +8,16 @@ import {AuthService} from "../../services/auth.service";
 })
 export class AppBarComponent implements OnInit {
 
-  constructor(private authService: AuthService) {
+  constructor(public authService: AuthService) {
   }
 
   ngOnInit(): void {
   }
 
   logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("exp");
+    this.authService.isAuthenticated();
   }
 
   isAuthenticated(){
