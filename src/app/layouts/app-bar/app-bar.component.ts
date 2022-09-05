@@ -12,22 +12,15 @@ export class AppBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.getUserInformationFromLocalStorage();
   }
 
   logout() {
-    this.authService.logout();
   }
 
   isAuthenticated(){
-    if (this.authService.isAuthenticated()){
-      return true;
-    }
-    return false;
   }
 
   getUserDetail(){
-    return <string>localStorage.getItem('user-email')
   }
 }
 

@@ -33,10 +33,6 @@ export class CreateJobPostingLayoutComponent implements OnInit {
 
     else if (this.categoryService.stage == 3){
       console.log("Yayınlanacak!")
-      this.jobPostingService.addJobPosting(this.jobPostingService.jobPostingForm.value).subscribe({
-        next: (value) => {console.log(`Başarılı${value}`); this.router.navigateByUrl('/')},
-        error: (err) => {console.log('Başarısız' + ' ' + err)}
-      })
     }
   }
 

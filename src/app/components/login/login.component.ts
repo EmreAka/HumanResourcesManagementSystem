@@ -31,35 +31,4 @@ export class LoginComponent implements OnInit {
       password: ["", [Validators.required, Validators.minLength(9)]]
     })
   }
-
-  async register() {
-   // const loading = await this.loadingController.create();
-    //await loading.present();
-
-    const user = await this.auth.register(this.email, this.password);
-    //await loading.dismiss();
-
-    if (user) {
-      //this.router.navigateByUrl('/home', { replaceUrl: true });
-    } else {
-      //this.showAlert('Registration failed', 'Please try again!');
-    }
-  }
-
-  async login() {
-    //const loading = await this.loadingController.create();
-    //await loading.present();
-    const user = await this.auth.login(this.email, this.password);
-    //await loading.dismiss();
-    if (user) {
-      await this.router.navigateByUrl('/', { replaceUrl: true });
-    } else {
-      console.log("error")
-      //this.showAlert('Login failed', 'Please try again!');
-    }
-  }
-
-   logout(){
-    this.auth.logout();
-   }
 }

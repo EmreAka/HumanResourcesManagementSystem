@@ -10,9 +10,6 @@ import {canActivate, redirectLoggedInTo, redirectUnauthorizedTo} from "@angular/
 import {LoginLayoutComponent} from "./layouts/login-layout/login-layout.component";
 import {RegisterComponent} from "./components/register/register.component";
 
-
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/auth/login']);
-const redirectLoggedInToHome = () => redirectLoggedInTo(['/']);
 const routes: Routes = [
   {
     path: "", component: HomeLayoutComponent, children: [
@@ -24,13 +21,13 @@ const routes: Routes = [
   {
     path: "create-job-postings", component: CreateJobPostingLayoutComponent, children: [
       {path: "", component: CreateJobPostingComponent}
-    ], ...canActivate(redirectUnauthorizedToLogin)
+    ]
   },
   {
     path: "auth", component: LoginLayoutComponent, children: [
       {path: "login", component: LoginComponent},
       {path: "register", component: RegisterComponent}
-    ], ...canActivate(redirectLoggedInToHome)
+    ]
   }
 
 ];

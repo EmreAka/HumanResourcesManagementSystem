@@ -9,18 +9,11 @@ import { from } from 'rxjs';
 export class JobPostingService {
   jobPostingForm: FormGroup;
 
-  constructor(private fireStore: Firestore) { }
+  constructor() { }
 
   addJobPosting(jobPosting: any){
-    const jobPostingsRef = collection(this.fireStore, "/job-postings");
-    const lalla = from(addDoc(jobPostingsRef, jobPosting))
-    return lalla;
   }
 
   getJobPostings(userId: string){
-    const jobPostingsRef = collection(this.fireStore, "/job-postings");
-    const data = query(jobPostingsRef, where('userId', '==', userId))
-    const result = collectionData(data, {idField: 'id'})
-    return result;
   }
 }

@@ -4,7 +4,7 @@
     <i class="bi bi-search"></i>
     <input placeholder="Arama yap..." class="nav-search"/>
   </div>
-  <div class="nav-end" *ngIf="!isAuthenticated()">
+  <div class="nav-end">
     <button class="nav-login" [routerLink]="['/auth/login']">Giriş</button>
     <button class="nav-register" [routerLink]="['/auth/register']">Kaydol</button>
   </div>

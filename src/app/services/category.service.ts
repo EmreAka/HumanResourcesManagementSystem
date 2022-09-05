@@ -10,15 +10,6 @@ export class CategoryService {
   selectedCategory: any;
   stage: number = 1;
 
-  constructor(private firestore: Firestore) { }
+  constructor() { }
 
-  getCategories(){
-    const categoriesDocRef = collection(this.firestore, `categories`);
-    return collectionData(categoriesDocRef, {idField: "id"});
-  }
-
-  getSoftwareDevelopmentCategories(){
-    const softCategories = collection(this.firestore, 'software-development-categories');
-    return collectionData(softCategories, {idField: 'id'})
-  }
 }

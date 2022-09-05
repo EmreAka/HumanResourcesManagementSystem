@@ -18,10 +18,6 @@ export class MyJobPostingsComponent implements OnInit {
   }
 
   getJobPostings(){
-    this.jobPostingService.getJobPostings(<string>this.auth.currentUser?.uid).subscribe({
-      next: (value) => {this.jobPostings = value; console.log(value)},
-      error: (err) => {console.log(err)}
-    })
   }
 
 }

@@ -49,11 +49,6 @@ export class CreateJobPostingComponent implements OnInit {
   }
 
   getSoftCategories() {
-    this.categoryService.getSoftwareDevelopmentCategories().subscribe({
-      next: (value) => {
-        this.softCategories = value
-      }
-    })
   }
 
   setCurrentSoftCategory(category: any) {
