@@ -32,7 +32,10 @@ export class CreateJobPostingLayoutComponent implements OnInit {
     }
 
     else if (this.categoryService.stage == 3){
-      console.log("Yayınlanacak!")
+      this.jobPostingService.addJobPosting().subscribe({
+        next: (value) => console.log(value),
+        error: (err) => console.log(err)
+      });
     }
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from "../../services/category.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { JobPostingService } from 'src/app/services/job-posting.service';
+import { Category } from 'src/app/models/Category';
 
 @Component({
   selector: 'app-create-job-posting',
@@ -10,9 +11,8 @@ import { JobPostingService } from 'src/app/services/job-posting.service';
 })
 export class CreateJobPostingComponent implements OnInit {
 
-  categories: any;
-  softCategories: any;
-  selectedSoftCategory: any;
+  softCategories: Category[];
+  selectedSoftCategory: Category;
 
   constructor(public categoryService: CategoryService, private formBuilder: FormBuilder,
     public jobPostingService: JobPostingService) {
@@ -36,7 +36,6 @@ export class CreateJobPostingComponent implements OnInit {
 
   createForm() {
     this.jobPostingService.jobPostingForm = this.formBuilder.group({
-      userId: ["", Validators.required],
       categoryId: ["", Validators.required],
       title: ["", Validators.required],
       description: ["", Validators.required],

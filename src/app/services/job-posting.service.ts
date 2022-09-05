@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { from } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +10,13 @@ import { from } from 'rxjs';
 export class JobPostingService {
   jobPostingForm: FormGroup;
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
-  addJobPosting(jobPosting: any){
+  addJobPosting() {
+    var result = this.httpClient.post(environment.apiRoute + "jobpostings/add", this.jobPostingForm.value);
+    return result;
   }
 
-  getJobPostings(userId: string){
+  getJobPostings(){
   }
 }
