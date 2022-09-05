@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from "../../models/Category";
 import { CategoryService } from "../../services/category.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { JobPostingService } from 'src/app/services/job-posting.service';
@@ -21,7 +20,7 @@ export class CreateJobPostingComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSoftCategories();
-
+    console.log("hellooo")
     this.createForm();
     // this.jobPostingService.jobPostingForm.controls['userId'].setValue(this.auth.currentUser?.uid);
     this.jobPostingService.jobPostingForm.valueChanges.subscribe({
@@ -47,6 +46,14 @@ export class CreateJobPostingComponent implements OnInit {
   }
 
   getSoftCategories() {
+    this.categoryService.getCategories().subscribe({
+      next: (value) => {
+        this.softCategories = value
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
   setCurrentSoftCategory(category: any) {

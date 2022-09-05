@@ -1,6 +1,4 @@
 export interface Category{
+  id: string;
   title: string;
-  active: string;
-  freelancer: string;
-  url: string;
 }
