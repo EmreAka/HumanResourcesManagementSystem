@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {JobPostingService} from "../../services/job-posting.service";
-import {Auth} from "@angular/fire/auth";
 
 @Component({
   selector: 'app-my-job-postings',
@@ -11,7 +10,7 @@ export class MyJobPostingsComponent implements OnInit {
 
   jobPostings: any[] = [];
 
-  constructor(private jobPostingService: JobPostingService, private auth: Auth) { }
+  constructor(private jobPostingService: JobPostingService) { }
 
   ngOnInit(): void {
     this.getJobPostings();

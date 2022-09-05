@@ -31,4 +31,11 @@ export class LoginComponent implements OnInit {
       password: ["", [Validators.required, Validators.minLength(9)]]
     })
   }
+
+  login() {
+    this.auth.login(this.credentials.value).subscribe({
+      next: (value) => console.log(value),
+      error: (err) => console.log(err)
+    });
+  }
 }

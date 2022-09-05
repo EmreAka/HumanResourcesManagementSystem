@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from "../../models/Category";
 import { CategoryService } from "../../services/category.service";
-import { DocumentData } from "@angular/fire/compat/firestore";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Auth } from "@angular/fire/auth";
 import { JobPostingService } from 'src/app/services/job-posting.service';
 
 @Component({
@@ -18,14 +16,14 @@ export class CreateJobPostingComponent implements OnInit {
   selectedSoftCategory: any;
 
   constructor(public categoryService: CategoryService, private formBuilder: FormBuilder,
-    private auth: Auth, public jobPostingService: JobPostingService) {
+    public jobPostingService: JobPostingService) {
   }
 
   ngOnInit(): void {
     this.getSoftCategories();
 
     this.createForm();
-    this.jobPostingService.jobPostingForm.controls['userId'].setValue(this.auth.currentUser?.uid);
+    // this.jobPostingService.jobPostingForm.controls['userId'].setValue(this.auth.currentUser?.uid);
     this.jobPostingService.jobPostingForm.valueChanges.subscribe({
       next: (value) => {
         console.log(value);

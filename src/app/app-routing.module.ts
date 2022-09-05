@@ -6,7 +6,6 @@ import {MyJobPostingsComponent} from "./components/my-job-postings/my-job-postin
 import {CreateJobPostingComponent} from "./components/create-job-posting/create-job-posting.component";
 import {CreateJobPostingLayoutComponent} from "./layouts/create-job-posting-layout/create-job-posting-layout.component";
 import {LoginComponent} from "./components/login/login.component";
-import {canActivate, redirectLoggedInTo, redirectUnauthorizedTo} from "@angular/fire/auth-guard";
 import {LoginLayoutComponent} from "./layouts/login-layout/login-layout.component";
 import {RegisterComponent} from "./components/register/register.component";
 
