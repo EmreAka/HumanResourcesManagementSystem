@@ -23,6 +23,7 @@ export class MySpecialClientRequestsComponent implements OnInit {
     this.clientRequestService.getClientRequestsByUserId().subscribe({
       next: (value) => {
         this.clientRequests = value;
+        console.log(value);
         this.spinner.hide();
       },
       error: (err) => {
@@ -30,6 +31,22 @@ export class MySpecialClientRequestsComponent implements OnInit {
         this.spinner.hide();
       }
     });
+  }
+
+  deleteClientRequest(id: string) {
+    console.log(id);
+    this.spinner.show();
+    this.clientRequestService.deleteClientRequest(id).subscribe({
+      next: (value) => {
+        const index = this.clientRequests.findIndex(x => x.id == id);
+        this.clientRequests.splice(index, index + 1);
+        this.spinner.hide();
+      },
+      error: (err) => {
+        console.log(err);
+        this.spinner.hide();
+      }
+    })
   }
 
 }

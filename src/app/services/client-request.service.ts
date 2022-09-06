@@ -22,4 +22,8 @@ export class ClientRequestService {
       environment.apiRoute + "clientrequests/GetAllRequestClientsWithDetailsWithUserId"
     );
   }
+
+  deleteClientRequest(id: string) {
+    return this.httpClient.post(environment.apiRoute + `clientrequests/delete/${id}`, {});
+  }
 }

@@ -16,7 +16,12 @@
         </p>
         <div>
           <button class="send-message">Edit</button>
-          <button class="send-offer">Delete</button>
+          <button
+            class="send-offer"
+            (click)="deleteClientRequest(clientRequest.id)"
+          >
+            Delete
+          </button>
         </div>
       </div>
       <div class="client-request-content">
