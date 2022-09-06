@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="title">
+    <h1 class="page-title">My Special Client Requests</h1>
+    <button class="button">Create Special Client Request</button>
+  </div>
+  <p class="description">
+    Having trouble finding the service or freelancer you are looking for? Then
+    you create a client request and freelancers will find you!
+  </p>
+
+  <div class="my-special-requests-container">
+    <div *ngFor="let clientRequest of clientRequests" class="client-request">
+      <div class="client-request-header">
+        <p style="margin-left: 1rem; font-weight: 600">
+          {{ clientRequest.userName }}
+        </p>
+        <div>
+          <button class="send-message">Edit</button>
+          <button class="send-offer">Delete</button>
+        </div>
+      </div>
+      <div class="client-request-content">
+        <div class="client-request-content-title">
+          {{ clientRequest.title }}
+        </div>
+        <div class="client-request-content-description">
+          {{ clientRequest.description }}
+        </div>
+      </div>
+      <div class="client-request-footer">
+        <div class="history">{{ clientRequest.createdDate | date }}</div>
+        <div class="client-request-footer-description">
+          <div class="client-request-footer-description-item">
+            <i
+              class="bi bi-wallet2"
+              style="font-size: 1.5rem; margin-right: 0.7rem"
+            ></i>
+            Budget:
+            <span style="font-weight: 600">{{
+              clientRequest.budget | currency
+            }}</span>
+          </div>
+          <div class="client-request-footer-description-item">
+            <i
+              class="bi bi-stopwatch"
+              style="font-size: 1.5rem; margin-right: 0.7rem"
+            ></i>
+            Deadline:
+            <span style="font-weight: 600">{{ clientRequest.deadLine }}</span>
+          </div>
+          <div class="client-request-footer-description-item">
+            <i
+              class="bi bi-star"
+              style="font-size: 1.5rem; margin-right: 0.7rem"
+            ></i>
+            Proposals:
+            <span style="font-weight: 600">{{ clientRequest.offers }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

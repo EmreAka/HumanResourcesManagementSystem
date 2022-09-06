@@ -20,6 +20,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { MySpecialClientRequestsComponent } from './components/my-special-client-requests/my-special-client-requests.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     LoginLayoutComponent,
     LoginComponent,
     RegisterComponent,
+    MySpecialClientRequestsComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,4 +16,10 @@ export class ClientRequestService {
     return this.httpClient.get<ClientRequestRead[]>
       (environment.apiRoute + "clientrequests/GetAllRequestClientsWithDetails");
   }
+
+  getClientRequestsByUserId(): Observable<ClientRequestRead[]>{
+    return this.httpClient.get<ClientRequestRead[]>(
+      environment.apiRoute + "clientrequests/GetAllRequestClientsWithDetailsWithUserId"
+    );
+  }
 }
