@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import {AuthService} from "../../services/auth.service";
 
 @Component({
@@ -8,7 +9,7 @@ import {AuthService} from "../../services/auth.service";
 })
 export class AppBarComponent implements OnInit {
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -18,6 +19,7 @@ export class AppBarComponent implements OnInit {
     localStorage.removeItem("token");
     localStorage.removeItem("exp");
     this.authService.isAuthenticated();
+    this.router.navigateByUrl("auth/login")
   }
 
   isAuthenticated(){
