@@ -26,4 +26,8 @@ export class ClientRequestService {
   deleteClientRequest(id: string) {
     return this.httpClient.post(environment.apiRoute + `clientrequests/delete/${id}`, {});
   }
+
+  addClientRequest(clientRequest: any) {
+    return this.httpClient.post(environment.apiRoute + "clientrequests/add", clientRequest);
+  }
 }

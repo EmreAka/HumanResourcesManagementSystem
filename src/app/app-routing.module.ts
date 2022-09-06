@@ -10,6 +10,7 @@ import { LoginLayoutComponent } from './layouts/login-layout/login-layout.compon
 import { RegisterComponent } from './components/register/register.component';
 import { LoginGuard } from './guards/login.guard';
 import { MySpecialClientRequestsComponent } from './components/my-special-client-requests/my-special-client-requests.component';
+import { CreateSpecialClientRequestComponent } from './components/create-special-client-request/create-special-client-request.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,11 @@ const routes: Routes = [
       {
         path: 'my-special-client-requests',
         component: MySpecialClientRequestsComponent,
+        canActivate: [LoginGuard],
+      },
+      {
+        path: 'create-special-client-requests',
+        component: CreateSpecialClientRequestComponent,
         canActivate: [LoginGuard],
       },
     ],

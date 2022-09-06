@@ -21,6 +21,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { MySpecialClientRequestsComponent } from './components/my-special-client-requests/my-special-client-requests.component';
+import { CreateSpecialClientRequestComponent } from './components/create-special-client-request/create-special-client-request.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MySpecialClientRequestsComponent } from './components/my-special-client
     LoginComponent,
     RegisterComponent,
     MySpecialClientRequestsComponent,
+    CreateSpecialClientRequestComponent,
   ],
   imports: [
     BrowserModule,

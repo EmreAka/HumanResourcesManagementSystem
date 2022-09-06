@@ -1,0 +1,28 @@
+.container{
+    padding-top: 3rem;
+    margin-left: 3rem;
+}
+
+.page-title {
+    margin-top: 2.5rem;
+}
+
+.client-request-title {
+    padding: 1rem;
+    font-weight: 600;
+    width: 100%;
+    outline: none;
+    border: none;
+    margin-top: 2px;
+}
+
+.client-request-title-container {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    border: 1px solid #F1D00A;
+}
+
+.client-request-title::placeholder {
+    opacity: 0.7;
+}
