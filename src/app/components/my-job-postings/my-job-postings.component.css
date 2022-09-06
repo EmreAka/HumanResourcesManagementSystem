@@ -23,8 +23,9 @@
 .job-postings-container{
   padding-top: 3rem;
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1em;
+  justify-content: space-between;
   justify-items: center;
   margin-bottom: 2rem;
 }

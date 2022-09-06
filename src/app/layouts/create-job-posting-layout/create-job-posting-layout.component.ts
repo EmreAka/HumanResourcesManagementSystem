@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { JobPostingService } from 'src/app/services/job-posting.service';
 import {CategoryService} from "../../services/category.service";
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-create-job-posting-layout',
@@ -11,7 +12,8 @@ import {Router} from "@angular/router";
 export class CreateJobPostingLayoutComponent implements OnInit {
 
   constructor(public categoryService: CategoryService,
-    private jobPostingService: JobPostingService, private router: Router) { }
+    private jobPostingService: JobPostingService,
+    private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
   }
@@ -32,12 +34,17 @@ export class CreateJobPostingLayoutComponent implements OnInit {
       this.categoryService.isCategorySelected = false;
     }
 
-    else if (this.categoryService.stage == 3){
+    else if (this.categoryService.stage == 3) {
+      this.spinner.show();
       this.jobPostingService.addJobPosting().subscribe({
         next: (value) => {
           this.router.navigateByUrl("/");
+          this.spinner.hide();
         },
-        error: (err) => console.log(err)
+        error: (err) => {
+          console.log(err);
+          this.spinner.hide();
+        }
       });
     }
   }

@@ -10,8 +10,8 @@
 <div class="form-footer">
   <div class="form-footer-content">
     <div class="form-footer-description">
-      <p style="font-size: 0.8rem; font-weight: 600">Adım {{this.categoryService.stage}} / 3</p>
-      <p>Kategori Seçimi</p>
+      <p style="font-size: 0.8rem; font-weight: 600">Step {{this.categoryService.stage}} / 3</p>
+      <p>Category selection</p>
     </div>
     <!--<div *ngIf="!this.categoryService.selectedCategory" class="form-footer-category">
       Kategori
@@ -20,5 +20,5 @@
       <p>{{this.categoryService.s?.title}}</p>
     </div>-->
   </div>
-  <button class="button" [style]="getStyle()" (click)="nextStage()">{{this.categoryService.stage == 3 ? "Yayınla": "Devam"}}</button>
+  <button class="button" [style]="getStyle()" (click)="nextStage()">{{this.categoryService.stage == 3 ? "Publish": "Continue"}}</button>
 </div>

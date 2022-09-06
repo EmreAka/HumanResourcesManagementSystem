@@ -9,6 +9,8 @@
   cursor: pointer;
 
   position: relative;
+
+  max-width: 240px;
 }
 
 img{

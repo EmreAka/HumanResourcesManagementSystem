@@ -3,6 +3,7 @@
   display: flex;
   margin: auto;
   height: 100vh;
+  padding-top: 3rem;
 }
 
 .form-footer {

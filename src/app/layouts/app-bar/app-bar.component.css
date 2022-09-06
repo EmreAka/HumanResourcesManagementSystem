@@ -3,6 +3,9 @@
   background-color: #21325E;
   height: 4rem;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
 .nav-title{
