@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, UntypedFormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
-import { NgxSpinnerService } from 'ngx-spinner/public_api';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.createLoginForm();
-    this.spinner.show();
   }
 
   createLoginForm(){
@@ -38,14 +37,19 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.spinner.show();
     this.auth.login(this.credentials.value).subscribe({
       next: (value) => {
         localStorage.setItem("token", value.accessToken);
         localStorage.setItem("exp", value.expiration.toString());
         this.auth.isAuthenticated()
         this.router.navigateByUrl("/")
+        this.spinner.hide();
       },
-      error: (err) => console.log(err)
+      error: (err) => {
+        console.log(err);
+        this.spinner.hide();
+      }
     });
   }
 }

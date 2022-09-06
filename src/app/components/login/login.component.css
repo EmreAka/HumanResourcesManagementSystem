@@ -19,4 +19,5 @@ button{
   color: white;
   background-color: #F1D00A;
   border: none;
+  cursor: pointer;
 }
