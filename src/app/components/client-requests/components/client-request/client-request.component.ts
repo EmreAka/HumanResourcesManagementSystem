@@ -12,7 +12,7 @@ export class ClientRequestComponent implements OnInit {
   @Input() description: string | undefined;
   @Input() time: string | undefined;
   @Input() budget: string | undefined;
-  @Input() requests: string | undefined;
+  @Input() offers: string | undefined;
 
   constructor() { }
 
