@@ -1,60 +1,91 @@
 <div id="stage-1" *ngIf="this.categoryService.stage == 1">
   <div style="margin-left: 3rem">
-    <h1 class="page-title">Biraz Daha Detay Alalım!</h1>
-    <p>Peki, hizmet verdiğin uzmanlık alanı <!--<span style="font-weight: 600">{{this.selectedCategory.title}}</span>-->
-      kategorisinin hangi alanına giriyor?</p>
+    <h1 class="page-title">Let's have some more details!</h1>
+    <p>Well, In which field of expertise do you serve?</p>
   </div>
 
   <div class="software-categories">
-    <div class="category-container" *ngFor="let category of this.softCategories"
-         (click)="setCurrentSoftCategory(category)"
-         [class.soft-category-background-color]="category.id == this.selectedSoftCategory?.id">
-      <p>{{category.title}}</p>
+    <div
+      class="category-container"
+      *ngFor="let category of this.softCategories"
+      (click)="setCurrentSoftCategory(category)"
+      [class.soft-category-background-color]="
+        category.id == this.selectedSoftCategory?.id
+      "
+    >
+      <p>{{ category.title }}</p>
     </div>
   </div>
 </div>
 
-<div id="stage-2" class="job-posting-details" *ngIf="this.categoryService.stage == 2" style="margin-bottom: 50rem">
+<div
+  id="stage-2"
+  class="job-posting-details"
+  *ngIf="this.categoryService.stage == 2"
+  style="padding-bottom: 5rem;"
+>
   <div style="margin-left: 3rem">
-    <h1 class="page-title">Başlık ve Açıklama</h1>
-    <p>Harika! Şimdi ilanını oluşturmaya başlayabilirsin. 🚀</p>
+    <h1 class="page-title">Title and Description</h1>
+    <p>Wonderful! Now, You can get started to create your advert. 🚀</p>
   </div>
 
-  <form [formGroup]="this.jobPostingService.jobPostingForm" style="margin-top: 3rem; margin-left: 3rem">
-    <h1 class="page-title">Etkileyici bir başlık bul!</h1>
+  <form
+    [formGroup]="this.jobPostingService.jobPostingForm"
+    style="margin-top: 3rem; margin-left: 3rem"
+  >
+    <h1 class="page-title">Find an impressive title!</h1>
     <p>
-      Başlık "Ben... " ile başlayan bir cümle olmalı ve bir fiille bitmelidir. Başlığın sonunda herhangi bir noktalama
-      işareti kullanmamalısın.</p>
+      The title should be a sentence that starts with "Ben... " and ends with a verb.
+      You should not use any punctuation in the end of the sentence.
+    </p>
     <div class="job-posting-title-container">
-      <p style="margin-right: 10px; margin-left: 1rem">Ben,</p>
-      <input formControlName="title" class="job-posting-title" placeholder=" uzman olduğum bir konuda..."/>
+      <p style="margin-right: 10px; margin-left: 1rem">I,</p>
+      <input
+        formControlName="title"
+        class="job-posting-title"
+        placeholder=" in field of my expertise..."
+      />
     </div>
 
-    <h1 class="page-title">Yapacağın işin detaylarını minimum 150 karakterle açıkla</h1>
+    <h1 class="page-title">
+      Explain the job You will do with minimum of 150 characters.
+    </h1>
     <div class="job-posting-title-container">
-      <textarea formControlName="description" style="resize: vertical; margin-left: 1rem" class="job-posting-title"
-                placeholder="Minimum 150 karakterden oluşacak şekilde yapacağın detaylarını anlatır mısın?"></textarea>
+      <textarea
+        formControlName="description"
+        style="resize: vertical; margin-left: 1rem"
+        class="job-posting-title"
+        placeholder="Can You please explain the job You will do with minimum of 150 characters?"
+      ></textarea>
     </div>
 
-    <h1 class="page-title">Siparişe başlaman için gerekenler</h1>
+    <h1 class="page-title">What You Need to Get Started</h1>
     <div class="job-posting-title-container">
-      <textarea formControlName="requirements" style="resize: vertical; margin-left: 1rem" class="job-posting-title"
-                placeholder="Siparişe hemen başlamak için ihtiyacın olacakları yazar mısın?"></textarea>
+      <textarea
+        formControlName="requirements"
+        style="resize: vertical; margin-left: 1rem"
+        class="job-posting-title"
+        placeholder="Can You write what You need to get started?"
+      ></textarea>
     </div>
 
-    <h1 class="page-title">Proje için istediğin ücret</h1>
+    <h1 class="page-title">What price do you want for the project?</h1>
     <div class="job-posting-title-container">
-      <input formControlName="price" style="margin-left: 1rem" class="job-posting-title" placeholder="Ücretinizi buraya girebilirsiniz." type="number"/>
+      <input
+        formControlName="price"
+        style="margin-left: 1rem"
+        class="job-posting-title"
+        placeholder="You can enter the price here"
+        type="number"
+      />
     </div>
 
-    <div style="height: 5rem">
-
-    </div>
+    <div style="height: 5rem"></div>
   </form>
 </div>
 
 <div id="stage-3" *ngIf="this.categoryService.stage == 3">
   <div style="margin-left: 3rem">
-    <h1 class="page-title">İlanınız Yayınlanmaya Hazır!</h1>
+    <h1 class="page-title">You advert is ready to publish!</h1>
   </div>
 </div>
