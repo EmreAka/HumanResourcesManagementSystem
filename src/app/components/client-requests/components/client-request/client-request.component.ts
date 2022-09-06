@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ClientRequestRead } from 'src/app/models/clientRequestRead';
 
 @Component({
   selector: 'app-client-request',
@@ -7,12 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ClientRequestComponent implements OnInit {
 
-  @Input() name: string | undefined;
-  @Input() title: string | undefined;
-  @Input() description: string | undefined;
-  @Input() time: string | undefined;
-  @Input() budget: string | undefined;
-  @Input() offers: string | undefined;
+  @Input() clientRequest: ClientRequestRead;
 
   constructor() { }
 

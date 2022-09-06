@@ -13,8 +13,8 @@ import { LoginGuard } from './guards/login.guard';
 const routes: Routes = [
   {
     path: "", component: HomeLayoutComponent, children: [
-      {path: "", component: ClientRequestsComponent, pathMatch: "full"},
-      {path: "client-request", component: ClientRequestsComponent},
+      {path: "", component: ClientRequestsComponent, pathMatch: "full", canActivate: [LoginGuard]},
+      {path: "client-request", component: ClientRequestsComponent, canActivate: [LoginGuard]},
       {path: "my-job-postings", component: MyJobPostingsComponent, canActivate: [LoginGuard]},
     ],
   },

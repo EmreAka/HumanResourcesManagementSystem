@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from "../../services/category.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { JobPostingService } from 'src/app/services/job-posting.service';
-import { Category } from 'src/app/models/Category';
+import { Category } from 'src/app/models/category';
 
 @Component({
   selector: 'app-create-job-posting',
