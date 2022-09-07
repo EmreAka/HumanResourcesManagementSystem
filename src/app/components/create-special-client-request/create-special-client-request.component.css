@@ -2,6 +2,8 @@
     padding-top: 3rem;
     margin-left: 3rem;
     padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .page-title {
@@ -26,4 +28,19 @@
 
 .client-request-title::placeholder {
     opacity: 0.7;
+}
+
+.publish {
+    margin-top: 2rem;
+    width: 11rem;
+    text-align: center;
+    height: 3rem;
+    background-color: #D61C4E;
+    border: 0px;
+    color: white;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    white-space: nowrap;
+    align-self: flex-end;
 }
