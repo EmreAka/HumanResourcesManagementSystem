@@ -1,45 +1,64 @@
 <div class="container">
   <h1>Let's Create A Special Client Request!</h1>
+  <form [formGroup]="clientRequestForm">
+    <h2 class="page-title">Find an impressive title!</h2>
+    <p>
+      The title should be a sentence that starts with "I... " You should not use
+      any punctuation in the end of the sentence.
+    </p>
+    <div class="client-request-title-container">
+      <input
+        formControlName="title"
+        class="client-request-title"
+        placeholder="Find an impressive title!"
+      />
+    </div>
 
-  <h2 class="page-title">Find an impressive title!</h2>
-  <p>
-    The title should be a sentence that starts with "I... " You should not use
-    any punctuation in the end of the sentence.
-  </p>
-  <div class="client-request-title-container">
-    <input
-      class="client-request-title"
-      placeholder="Find an impressive title!"
-    />
-  </div>
+    <h2 class="page-title">Describe what you need a developer for.</h2>
+    <div class="client-request-title-container">
+      <textarea
+        formControlName="description"
+        style="resize: vertical"
+        class="client-request-title"
+        placeholder="Can You write what You need a developer for?"
+      ></textarea>
+    </div>
 
-  <h2 class="page-title">Describe what you need a developer for.</h2>
-  <div class="client-request-title-container">
-    <textarea
-      formControlName="requirements"
-      style="resize: vertical"
-      class="client-request-title"
-      placeholder="Can You write what You need a developer for?"
-    ></textarea>
-  </div>
+    <h2 class="page-title">How long you need a dev?</h2>
+    <div class="client-request-title-container">
+      <textarea
+        formControlName="deadline"
+        style="resize: vertical"
+        class="client-request-title"
+        placeholder="A month, Two months, More than three months, etc for example."
+      ></textarea>
+    </div>
 
-  <h2 class="page-title">How long you need a dev?</h2>
-  <div class="client-request-title-container">
-    <textarea
-      formControlName="requirements"
-      style="resize: vertical"
-      class="client-request-title"
-      placeholder="A month, Two months, More than three months, etc for example."
-    ></textarea>
-  </div>
+    <h2 class="page-title">Your budget.</h2>
+    <div class="client-request-title-container">
+      <input
+        formControlName="budget"
+        type="number"
+        class="client-request-title"
+        placeholder="Can you enter your budget?"
+      />
+    </div>
 
-  <h2 class="page-title">Your budget.</h2>
-  <div class="client-request-title-container">
-    <input
-      type="number"
-      formControlName="requirements"
-      class="client-request-title"
-      placeholder="Can you enter your budget?"
-    />
-  </div>
+    <h2 class="page-title">Which category does your request belong to?</h2>
+    <select
+      formControlName="categoryId"
+      style="
+        padding: 1rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
+        margin-top: 3rem;
+        font-weight: 600;
+      "
+    >
+      <option selected disabled>Select A Category</option>
+      <option *ngFor="let category of categories" [ngValue]="category.id">
+        {{ category.title }}
+      </option>
+    </select>
+  </form>
 </div>
