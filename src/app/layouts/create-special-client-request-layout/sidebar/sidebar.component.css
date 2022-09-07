@@ -1,0 +1,21 @@
+.side-menu{
+  list-style: none;
+  padding-left: 0;
+}
+
+.side-menu-item{
+  color: black;
+  margin-bottom: 2rem;
+  align-items: center;
+  cursor: pointer;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.side-menu-item:hover{
+  font-weight: 600;
+}
+
+.side-menu-item span{
+  opacity: 0.6;
+}
