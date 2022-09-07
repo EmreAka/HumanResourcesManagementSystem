@@ -22,7 +22,6 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { MySpecialClientRequestsComponent } from './components/my-special-client-requests/my-special-client-requests.component';
 import { CreateSpecialClientRequestComponent } from './components/create-special-client-request/create-special-client-request.component';
-import { CreateSpecialClientRequestLayoutComponent } from './layouts/create-special-client-request-layout/create-special-client-request-layout.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +40,6 @@ import { CreateSpecialClientRequestLayoutComponent } from './layouts/create-spec
     RegisterComponent,
     MySpecialClientRequestsComponent,
     CreateSpecialClientRequestComponent,
-    CreateSpecialClientRequestLayoutComponent,
   ],
   imports: [
     BrowserModule,
