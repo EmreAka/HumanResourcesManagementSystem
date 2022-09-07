@@ -11,6 +11,7 @@
 .nav-title{
   margin-left: 1rem;
   color: white;
+  cursor: pointer;
 }
 
 .nav-items{
