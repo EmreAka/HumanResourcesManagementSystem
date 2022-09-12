@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import { DecodedToken } from 'src/app/models/decodedToken';
 import {AuthService} from "../../services/auth.service";
 
 @Component({
@@ -8,6 +9,7 @@ import {AuthService} from "../../services/auth.service";
   styleUrls: ['./app-bar.component.css']
 })
 export class AppBarComponent implements OnInit {
+
 
   constructor(public authService: AuthService, private router: Router) {
   }
@@ -25,7 +27,8 @@ export class AppBarComponent implements OnInit {
   isAuthenticated(){
   }
 
-  getUserDetail(){
+  getUserEmail(): string {
+    return this.authService.decodedToken.Email;
   }
 }
 

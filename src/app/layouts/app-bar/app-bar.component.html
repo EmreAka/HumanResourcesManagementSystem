@@ -1,15 +1,21 @@
 <nav class="nav-container">
-  <h1 class="nav-title" routerLink = "/">HRMS</h1>
+  <h1 class="nav-title" routerLink="/">HRMS</h1>
   <div class="search-container">
     <i class="bi bi-search"></i>
-    <input placeholder="Search..." class="nav-search"/>
+    <input placeholder="Search..." class="nav-search" />
   </div>
   <div class="nav-end" *ngIf="!authService.isAuthenticated()">
     <button class="nav-login" [routerLink]="['/auth/login']">Login</button>
-    <button class="nav-register" [routerLink]="['/auth/register']">Register</button>
+    <button class="nav-register" [routerLink]="['/auth/register']">
+      Register
+    </button>
   </div>
-  <div class="nav-end" style="align-items: center" *ngIf="authService.isAuthenticated()">
-    <p class="email">{{this.getUserDetail()}}</p>
+  <div
+    class="nav-end"
+    style="align-items: center"
+    *ngIf="authService.isAuthenticated()"
+  >
+    <p class="email">{{ this.getUserEmail() }}</p>
     <button class="nav-register" (click)="logout()">Logout</button>
   </div>
 </nav>
