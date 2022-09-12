@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ClientRequestService } from 'src/app/services/client-request.service';
-import {NgxSpinnerService} from 'ngx-spinner';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/models/category';
 import { DeadlineService } from 'src/app/services/deadline.service';
 import { Deadline } from 'src/app/models/deadline';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-special-client-request',
@@ -22,7 +24,9 @@ export class CreateSpecialClientRequestComponent implements OnInit {
     private clientRequestService: ClientRequestService,
     private spinner: NgxSpinnerService,
     private categoryService: CategoryService,
-    private deadlineService: DeadlineService) { }
+    private deadlineService: DeadlineService,
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -37,25 +41,38 @@ export class CreateSpecialClientRequestComponent implements OnInit {
 
   createForm() {
     this.clientRequestForm = this.fb.group({
-      categoryId: [0, [Validators.required]],
-      deadlineId: [0, [Validators.required]],
-      title: ["", [Validators.required]],
-      description: ["", [Validators.required]],
-      deadline: ["", [Validators.required]],
-      budget: [null, [Validators.required, Validators.min(0)]],
+      categoryId: [null, [Validators.required]],
+      deadlineId: [null, [Validators.required]],
+      title: [null, [Validators.required]],
+      description: [null, [Validators.required]],
+      budget: [null, [Validators.required, Validators.min(0), Validators.max(10000)]],
     });
   }
 
   addClientRequest() {
     this.spinner.show();
-    this.clientRequestService.addClientRequest(this.clientRequestForm.value).subscribe({
-      next: (value) => {
-        this.spinner.hide();
-      },
-      error: (err) => {
-        this.spinner.hide();
-      }
-    });
+
+    if (this.clientRequestForm.get("budget")?.hasError("max")) {
+      this.toastr.error("Your budget can be maximum of 10000");
+      this.spinner.hide();
+    }
+
+    else if (!this.clientRequestForm.valid) {
+      this.toastr.error("Complete the form")
+      this.spinner.hide();
+    }
+
+    else {
+      this.clientRequestService.addClientRequest(this.clientRequestForm.value).subscribe({
+        next: (value) => {
+          this.spinner.hide();
+          this.router.navigateByUrl('/');
+        },
+        error: (err) => {
+          this.spinner.hide();
+        }
+      });
+    }
   }
 
   getSoftwareCategories() {
