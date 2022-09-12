@@ -34,6 +34,27 @@
       ></textarea>
     </div>
 
+    <h2 class="page-title">How long you need a dev?</h2>
+    <select
+      formControlName="deadlineId"
+      style="
+        padding: 1rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
+        margin-top: 3rem;
+        font-weight: 600;
+        width: 100%;
+        cursor: pointer;
+        border: yellow 1px solid;
+        outline: none;
+      "
+    >
+      <option selected disabled>Select A Deadline</option>
+      <option *ngFor="let category of categories" [ngValue]="category.id">
+        {{ category.title }}
+      </option>
+    </select>
+
     <h2 class="page-title">Your budget.</h2>
     <div class="client-request-title-container">
       <input
@@ -55,6 +76,8 @@
         font-weight: 600;
         width: 100%;
         cursor: pointer;
+        border: yellow 1px solid;
+        outline: none;
       "
     >
       <option selected disabled>Select A Category</option>

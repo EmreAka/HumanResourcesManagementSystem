@@ -33,10 +33,11 @@ export class CreateSpecialClientRequestComponent implements OnInit {
   createForm() {
     this.clientRequestForm = this.fb.group({
       categoryId: [0, [Validators.required]],
+      deadlineId: [0, [Validators.required]],
       title: ["", [Validators.required]],
       description: ["", [Validators.required]],
       deadline: ["", [Validators.required]],
-      budget: [0, [Validators.required, Validators.min(0)]],
+      budget: [null, [Validators.required, Validators.min(0)]],
     });
   }
 
