@@ -4,6 +4,8 @@ import { ClientRequestService } from 'src/app/services/client-request.service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/models/category';
+import { DeadlineService } from 'src/app/services/deadline.service';
+import { Deadline } from 'src/app/models/deadline';
 
 @Component({
   selector: 'app-create-special-client-request',
@@ -14,15 +16,18 @@ export class CreateSpecialClientRequestComponent implements OnInit {
 
   clientRequestForm: FormGroup;
   categories: Category[];
+  deadlines: Deadline[];
 
   constructor(private fb: FormBuilder,
     private clientRequestService: ClientRequestService,
     private spinner: NgxSpinnerService,
-    private categoryService: CategoryService) { }
+    private categoryService: CategoryService,
+    private deadlineService: DeadlineService) { }
 
   ngOnInit(): void {
     this.createForm();
     this.getSoftwareCategories();
+    this.getDeadlines();
     this.clientRequestForm.valueChanges.subscribe({
       next: (value) => {
         console.log(value);
@@ -60,6 +65,21 @@ export class CreateSpecialClientRequestComponent implements OnInit {
         this.categories = value;
         this.spinner.hide();
       },
+      error: (err) => {
+        console.log(err);
+        this.spinner.hide();
+      }
+    });
+  }
+
+  getDeadlines() {
+    this.spinner.show();
+    this.deadlineService.getDeadlines().subscribe({
+      next: (value) => {
+        this.deadlines = value;
+        this.spinner.hide();
+      },
+
       error: (err) => {
         console.log(err);
         this.spinner.hide();

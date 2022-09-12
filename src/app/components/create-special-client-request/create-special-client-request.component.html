@@ -50,8 +50,8 @@
       "
     >
       <option selected disabled>Select A Deadline</option>
-      <option *ngFor="let category of categories" [ngValue]="category.id">
-        {{ category.title }}
+      <option *ngFor="let deadline of deadlines" [ngValue]="deadline.id">
+        {{ deadline.name }}
       </option>
     </select>
 
