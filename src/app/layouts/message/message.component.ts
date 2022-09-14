@@ -10,11 +10,13 @@ import { MessageService } from 'src/app/services/message.service';
 })
 export class MessageComponent implements OnInit {
 
-  isOpen: boolean = true;
+  isOpen: boolean = false;
 
   messages: any[];
 
-  selectedMessage: any = { senderUserName: "RidvanAka" };
+  selectedMessage: any = null;
+
+  messagesWithUser: any[];
 
   constructor(private messageService: MessageService,
     private spinner: NgxSpinnerService,
@@ -51,10 +53,23 @@ export class MessageComponent implements OnInit {
 
   showMessages(sender: string) {
     this.selectedMessage = this.messages.find(m => m.senderUserName === sender);
+    this.getMyMessagesWithUser();
   }
 
   getMessages(sender: string): any[] {
     return this.messages.filter(m => m.senderUserName === sender)
+  }
+
+  getMyMessagesWithUser() {
+    this.messageService.getMyMessagesWithUser(this.selectedMessage.senderUserId)
+      .subscribe({
+        next: (value) => {
+          this.messagesWithUser = value;
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      });
   }
 
 }
