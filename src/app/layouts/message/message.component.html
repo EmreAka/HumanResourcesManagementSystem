@@ -9,6 +9,10 @@
     <i class="bi bi-x-lg" (click)="isOpen = false"></i>
   </div>
   <ul class="messages">
-    <li class="message" *ngFor="let message of messages">{{ message.text }}</li>
+    <li class="message" *ngFor="let sender of getSenders()">
+      <div>
+        <h5>{{ sender }}</h5>
+      </div>
+    </li>
   </ul>
 </div>

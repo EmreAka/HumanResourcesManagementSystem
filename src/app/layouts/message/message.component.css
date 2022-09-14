@@ -43,7 +43,7 @@
 .messages {
     list-style: none;
     color: white;
-    margin: 5rem 0 0 1rem;
+    margin: 5rem 0 0 0;
     padding: 0;
 }
 
@@ -62,4 +62,11 @@
 .title i {
     color: white;
     cursor: pointer;
+}
+
+.message h5 {
+    cursor: pointer;
+    border-top: #3E497A 1px solid;
+    border-bottom: #3E497A 1px solid;
+    padding: 1rem;
 }

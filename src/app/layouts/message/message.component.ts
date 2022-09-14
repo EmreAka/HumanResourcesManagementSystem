@@ -37,4 +37,14 @@ export class MessageComponent implements OnInit {
     });
   }
 
+  getSenders(): string[] {
+    const senders: string[] = [];
+    this.messages.forEach(item => {
+      if (!senders.includes(item.senderUserName)) {
+        senders.push(item.senderUserName)
+      }
+    })
+    return senders;
+  }
+
 }
