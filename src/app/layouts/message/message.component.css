@@ -8,6 +8,7 @@
     background-color: #21325E;
     width: 15rem;
     height: 4rem;
+    cursor: pointer;
 }
 
 .container p {
@@ -19,4 +20,46 @@
 .container i {
     color: white;
     margin-right: 1rem;
+}
+
+
+.container-messages{
+    overflow: auto;
+    width: 17rem;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: #21325E;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.container-messages h4{
+    color: white;
+}
+
+.messages {
+    list-style: none;
+    color: white;
+    margin: 5rem 0 0 1rem;
+    padding: 0;
+}
+
+.title{
+    position: fixed;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #21325E;
+    z-index: 3;
+    width: 230px;
+}
+
+.title i {
+    color: white;
 }

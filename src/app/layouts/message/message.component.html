@@ -1,4 +1,50 @@
-<div class="container">
+<div class="container" *ngIf="!isOpen" (click)="isOpen = true">
   <p>Messages</p>
   <i class="bi bi-chat-fill"></i>
+</div>
+
+<div class="container-messages" *ngIf="isOpen">
+  <div class="title">
+    <h4>Messages</h4>
+    <i class="bi bi-x-lg" (click)="isOpen = false"></i>
+  </div>
+  <ul class="messages">
+    <li class="message">MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+    <li>MESSAGE</li>
+  </ul>
 </div>
