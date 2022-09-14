@@ -17,4 +17,8 @@ export class MessageService {
   getMyMessagesWithUser(senderId: string): Observable<any[]> {
     return this.httpClient.get<any[]>(environment.apiRoute + `messages/${senderId}`)
   }
+
+  sendMessage(message: any): Observable<any> {
+    return this.httpClient.post<any>(environment.apiRoute + "messages", message);
+  }
 }

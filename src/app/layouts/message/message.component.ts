@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/services/auth.service';
 import { MessageService } from 'src/app/services/message.service';
@@ -18,13 +19,30 @@ export class MessageComponent implements OnInit {
 
   messagesWithUser: any[];
 
+  messageForm: FormGroup
+
   constructor(private messageService: MessageService,
     private spinner: NgxSpinnerService,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private fb: FormBuilder) { }
 
   ngOnInit(): void {
     if (this.authService.isAuthenticated())
       this.getMyMessages();
+
+    this.createMessageForm();
+
+    this.messageForm.valueChanges.subscribe({
+      next: (value) => {
+        console.log(value)
+      }
+    })
+  }
+
+  createMessageForm() {
+    this.messageForm = this.fb.group({
+      text: [null, [Validators.required]]
+    });
   }
 
   getMyMessages() {
@@ -66,6 +84,20 @@ export class MessageComponent implements OnInit {
           console.log(err)
         }
       });
+  }
+
+  sendMessage() {
+    const message: any = Object.assign(
+      { receiverUserId: this.selectedMessage.senderUserId }, this.messageForm.value)
+    this.messageService.sendMessage(message).subscribe({
+      next: (value) => {
+        console.log("Success");
+        this.messageForm.reset();
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
 }

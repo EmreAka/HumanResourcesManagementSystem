@@ -112,6 +112,8 @@
     row-gap: 1rem;
     padding: 1rem 1rem 1rem 1rem;
     color: white;
+    justify-self: self-start;
+    overflow: auto;
 }
 
 .input-container {
@@ -129,4 +131,24 @@
 
 .input-container .input::placeholder {
     color: white;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #16213E;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #3E497A;
+    border-radius: 2.5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #3E497A;
 }
