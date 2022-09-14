@@ -27,8 +27,11 @@
       class="dm-message"
       *ngFor="let message of getMessages(selectedMessage.senderUserName)"
     > -->
-    <p class="dm-message" *ngFor="let message of messagesWithUser">
-      {{ message.text }}
-    </p>
+    <div class="dm-message" *ngFor="let message of messagesWithUser">
+      <h6>{{ message.senderUserName }}</h6>
+      <p>
+        {{ message.text }}
+      </p>
+    </div>
   </div>
 </div>
