@@ -70,3 +70,44 @@
     border-bottom: #3E497A 1px solid;
     padding: 1rem;
 }
+
+
+.dm {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    right: 300px;
+    background-color: #21325E;
+    width: 24rem;
+    height: 25rem;
+}
+
+.dm h5 {
+    color: white;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+}
+
+.dm-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+    width: 100%;
+    background-color: #16213E;
+}
+
+.dm-header i {
+    color: white;
+    margin-right: 1rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.dm-messages{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem 1rem 1rem;
+    color: white;
+}

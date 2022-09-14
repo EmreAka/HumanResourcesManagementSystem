@@ -14,6 +14,8 @@ export class MessageComponent implements OnInit {
 
   messages: any[];
 
+  selectedMessage: any = { senderUserName: "RidvanAka" };
+
   constructor(private messageService: MessageService,
     private spinner: NgxSpinnerService,
     private authService: AuthService) { }
@@ -45,6 +47,14 @@ export class MessageComponent implements OnInit {
       }
     })
     return senders;
+  }
+
+  showMessages(sender: string) {
+    this.selectedMessage = this.messages.find(m => m.senderUserName === sender);
+  }
+
+  getMessages(sender: string): any[] {
+    return this.messages.filter(m => m.senderUserName === sender)
   }
 
 }

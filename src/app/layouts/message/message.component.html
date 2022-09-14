@@ -11,8 +11,23 @@
   <ul class="messages">
     <li class="message" *ngFor="let sender of getSenders()">
       <div>
-        <h5>{{ sender }}</h5>
+        <h5 (click)="showMessages(sender)">{{ sender }}</h5>
       </div>
     </li>
   </ul>
+</div>
+
+<div class="dm" *ngIf="selectedMessage">
+  <div class="dm-header">
+    <h5>{{ selectedMessage.senderUserName }}</h5>
+    <i class="bi bi-x-lg" (click)="selectedMessage = null"></i>
+  </div>
+  <div class="dm-messages">
+    <p
+      class="dm-message"
+      *ngFor="let message of getMessages(selectedMessage.senderUserName)"
+    >
+      {{ message.text }}
+    </p>
+  </div>
 </div>
