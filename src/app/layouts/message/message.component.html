@@ -18,20 +18,26 @@
 </div>
 
 <div class="dm" *ngIf="selectedMessage">
-  <div class="dm-header">
-    <h5>{{ selectedMessage.senderUserName }}</h5>
-    <i class="bi bi-x-lg" (click)="selectedMessage = null"></i>
-  </div>
-  <div class="dm-messages">
-    <!-- <p
+  <div>
+    <div class="dm-header">
+      <h5>{{ selectedMessage.senderUserName }}</h5>
+      <i class="bi bi-x-lg" (click)="selectedMessage = null"></i>
+    </div>
+    <div class="dm-messages">
+      <!-- <p
       class="dm-message"
       *ngFor="let message of getMessages(selectedMessage.senderUserName)"
     > -->
-    <div class="dm-message" *ngFor="let message of messagesWithUser">
-      <h6>{{ message.senderUserName }}</h6>
-      <p>
-        {{ message.text }}
-      </p>
+      <div class="dm-message" *ngFor="let message of messagesWithUser">
+        <h6>{{ message.senderUserName }}</h6>
+        <p>
+          {{ message.text }}
+        </p>
+      </div>
     </div>
+  </div>
+
+  <div class="input-container">
+    <input class="input" placeholder="enter message" />
   </div>
 </div>

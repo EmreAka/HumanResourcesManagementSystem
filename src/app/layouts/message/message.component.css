@@ -1,4 +1,4 @@
-.container{
+.container {
     position: fixed;
     display: flex;
     align-items: center;
@@ -23,7 +23,7 @@
 }
 
 
-.container-messages{
+.container-messages {
     overflow: auto;
     width: 17rem;
     height: 100vh;
@@ -36,7 +36,7 @@
     z-index: 1;
 }
 
-.container-messages h4{
+.container-messages h4 {
     color: white;
 }
 
@@ -47,7 +47,7 @@
     padding: 0;
 }
 
-.title{
+.title {
     position: fixed;
     font-size: 1.2rem;
     display: flex;
@@ -76,6 +76,7 @@
     position: fixed;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     bottom: 0;
     right: 300px;
     background-color: #21325E;
@@ -105,10 +106,27 @@
     cursor: pointer;
 }
 
-.dm-messages{
+.dm-messages {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
     padding: 1rem 1rem 1rem 1rem;
+    color: white;
+}
+
+.input-container {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: #3E497A;
+}
+
+.input-container .input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.input-container .input::placeholder {
     color: white;
 }
