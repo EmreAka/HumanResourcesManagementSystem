@@ -100,4 +100,8 @@ export class MessageComponent implements OnInit {
     });
   }
 
+  receiveMessage(message: string) {
+
+  }
+
 }
