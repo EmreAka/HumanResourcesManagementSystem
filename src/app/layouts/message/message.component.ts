@@ -56,10 +56,6 @@ export class MessageComponent implements OnInit {
     this.getMyMessagesWithUser();
   }
 
-  getMessages(sender: string): any[] {
-    return this.messages.filter(m => m.senderUserName === sender)
-  }
-
   getMyMessagesWithUser() {
     this.messageService.getMyMessagesWithUser(this.selectedMessage.senderUserId)
       .subscribe({
