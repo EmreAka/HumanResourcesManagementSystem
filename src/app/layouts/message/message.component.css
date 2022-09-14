@@ -1,0 +1,22 @@
+.container{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    bottom: 10px;
+    right: 10px;
+    background-color: #21325E;
+    width: 15rem;
+    height: 4rem;
+}
+
+.container p {
+    color: white;
+    margin-left: 1rem;
+    font-size: 1.3rem;
+}
+
+.container i {
+    color: white;
+    margin-right: 1rem;
+}
