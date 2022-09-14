@@ -1,1 +1,15 @@
-<p>register works!</p>
+<form [formGroup]="credentials" class="container">
+  <p style="font-weight: 600">Email</p>
+  <input formControlName="email" placeholder="E-mail" type="email" />
+  <p style="font-weight: 600; margin-top: 1rem">Password</p>
+  <input formControlName="password" placeholder="Password" type="password" />
+  <p style="font-weight: 600; margin-top: 1rem">Username</p>
+  <input formControlName="userName" placeholder="User name" type="text" />
+  <p style="font-weight: 600; margin-top: 1rem">First name</p>
+  <input formControlName="firstName" placeholder="First name" type="text" />
+  <p style="font-weight: 600; margin-top: 1rem">Second name</p>
+  <input formControlName="secondName" placeholder="Second name" type="text" />
+  <p style="font-weight: 600; margin-top: 1rem">Last name</p>
+  <input formControlName="lastName" placeholder="Last name" type="text" />
+  <button (click)="register()">Sign-up</button>
+</form>

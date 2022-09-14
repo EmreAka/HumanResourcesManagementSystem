@@ -1,8 +1,7 @@
 <form [formGroup]="credentials" class="container">
-  <p style="font-weight: 600;">Email</p>
-  <input formControlName="email" placeholder="E-posta veya kullanıcı adı" type="email"/>
-  <p style="font-weight: 600; margin-top: 1rem;">Password</p>
-  <input formControlName="password" placeholder="Şifre" type="password"/>
-  <button (click)="login()">Giriş Yap</button>
+  <p style="font-weight: 600">Email</p>
+  <input formControlName="email" placeholder="E-mail" type="email" />
+  <p style="font-weight: 600; margin-top: 1rem">Password</p>
+  <input formControlName="password" placeholder="Password" type="password" />
+  <button (click)="login()">Sign-in</button>
 </form>
-

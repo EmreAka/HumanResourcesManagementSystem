@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+
+input {
+    font-weight: 600;
+    width: 15rem;
+    padding: 0.5rem;
+    margin-top: 0.3rem;
+}
+
+button {
+    margin-top: 1rem;
+    padding: 0.7rem 2.5rem 0.7rem 2.5rem;
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: white;
+    background-color: #F1D00A;
+    border: none;
+    cursor: pointer;
+}
