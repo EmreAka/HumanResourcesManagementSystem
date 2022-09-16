@@ -108,7 +108,9 @@ export class MessageComponent implements OnInit {
   // }
 
   sendMessage() {
-    this.chatService.sendMessageToHub(this.message).subscribe({
+    const message: any = Object.assign(
+      { receiverUserId: this.selectedMessage.senderUserId }, this.messageForm.value)
+    this.chatService.sendMessageToHub(message).subscribe({
       next: (value) => console.log(value),
       error: (err) => console.log(err)
     })

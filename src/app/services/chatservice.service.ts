@@ -27,7 +27,7 @@ export class ChatserviceService {
   //     .pipe(tap(_ => console.log("message sucessfully sent to api controller")));
   // }
 
-  public sendMessageToHub(message: string) {
+  public sendMessageToHub(message: any) {
     var promise = this.hubConnection.invoke("SendMessageAsync", message)
       .then(() => { console.log('message sent successfully to hub'); })
       .catch((err) => console.log('error while sending a message to hub: ' + err));
