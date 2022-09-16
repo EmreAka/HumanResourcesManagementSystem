@@ -28,7 +28,7 @@ export class MessageComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private authService: AuthService,
     private fb: FormBuilder,
-    private chatService: ChatserviceService) { }
+    public chatService: ChatserviceService) { }
 
   ngOnInit(): void {
     if (this.authService.isAuthenticated()) {
@@ -81,16 +81,20 @@ export class MessageComponent implements OnInit {
     this.getMyMessagesWithUser();
   }
 
+  // getMyMessagesWithUser() {
+  //   this.messageService.getMyMessagesWithUser(this.selectedMessage.senderUserId)
+  //     .subscribe({
+  //       next: (value) => {
+  //         this.messagesWithUser = value;
+  //       },
+  //       error: (err) => {
+  //         console.log(err)
+  //       }
+  //     });
+  // }
+
   getMyMessagesWithUser() {
-    this.messageService.getMyMessagesWithUser(this.selectedMessage.senderUserId)
-      .subscribe({
-        next: (value) => {
-          this.messagesWithUser = value;
-        },
-        error: (err) => {
-          console.log(err)
-        }
-      });
+    this.chatService.getMyMessagesWithUser(this.selectedMessage.senderUserId);
   }
 
   // sendMessage() {
@@ -115,9 +119,4 @@ export class MessageComponent implements OnInit {
       error: (err) => console.log(err)
     })
   }
-
-  receiveMessage(message: string) {
-
-  }
-
 }

@@ -24,7 +24,7 @@
       <i class="bi bi-x-lg" (click)="selectedMessage = null"></i>
     </div>
     <div class="dm-messages" style="height: 16rem; overflow: auto">
-      <div class="dm-message" *ngFor="let message of messagesWithUser">
+      <div class="dm-message" *ngFor="let message of this.chatService.messages">
         <h6>{{ message.senderUserName }}</h6>
         <p>
           {{ message.text }}

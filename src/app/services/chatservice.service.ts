@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HubConnectionBuilder } from '@microsoft/signalr';
 import { HubConnection } from '@microsoft/signalr/dist/esm/HubConnection';
-import { from, tap } from 'rxjs';
+import { from, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -71,5 +71,18 @@ export class ChatserviceService {
     this.hubConnection.on("newUserConnected", _ => {
       console.log("new user connected")
     })
+  }
+
+
+  getMyMessagesWithUser(senderId: string) {
+    this.http.get<any[]>(environment.apiRoute + `messages/${senderId}`)
+      .subscribe({
+        next: (value) => {
+          this.messages = value;
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      });
   }
 }
