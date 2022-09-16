@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/services/auth.service';
+import { ChatserviceService } from 'src/app/services/chatservice.service';
 import { MessageService } from 'src/app/services/message.service';
 
 @Component({
@@ -21,14 +22,20 @@ export class MessageComponent implements OnInit {
 
   messageForm: FormGroup
 
+  message: string;
+
   constructor(private messageService: MessageService,
     private spinner: NgxSpinnerService,
     private authService: AuthService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private chatService: ChatserviceService) { }
 
   ngOnInit(): void {
-    if (this.authService.isAuthenticated())
+    if (this.authService.isAuthenticated()) {
       this.getMyMessages();
+      this.chatService.connect();
+    }
+
 
     this.createMessageForm();
 
@@ -86,18 +93,25 @@ export class MessageComponent implements OnInit {
       });
   }
 
+  // sendMessage() {
+  //   const message: any = Object.assign(
+  //     { receiverUserId: this.selectedMessage.senderUserId }, this.messageForm.value)
+  //   this.messageService.sendMessage(message).subscribe({
+  //     next: (value) => {
+  //       console.log("Success");
+  //       this.messageForm.reset();
+  //     },
+  //     error: (err) => {
+  //       console.log(err);
+  //     }
+  //   });
+  // }
+
   sendMessage() {
-    const message: any = Object.assign(
-      { receiverUserId: this.selectedMessage.senderUserId }, this.messageForm.value)
-    this.messageService.sendMessage(message).subscribe({
-      next: (value) => {
-        console.log("Success");
-        this.messageForm.reset();
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
+    this.chatService.sendMessageToHub(this.message).subscribe({
+      next: (value) => console.log(value),
+      error: (err) => console.log(err)
+    })
   }
 
   receiveMessage(message: string) {

@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: ""
+  apiUrl: "",
+  chatRoute: "http://localhost:5255/chat"
 };

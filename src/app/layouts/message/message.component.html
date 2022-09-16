@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <form class="input-container" [formGroup]="messageForm">
+  <!-- <form class="input-container" [formGroup]="messageForm">
     <input
       type="text"
       class="input"
@@ -41,5 +41,14 @@
       formControlName="text"
       (keyup.enter)="sendMessage()"
     />
-  </form>
+  </form> -->
+  <div class="input-container">
+    <input
+      type="text"
+      class="input"
+      placeholder="enter message"
+      [(ngModel)]="message"
+      (keyup.enter)="sendMessage()"
+    />
+  </div>
 </div>

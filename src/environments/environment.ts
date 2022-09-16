@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiRoute: "http://localhost:5255/api/v1/"
+  apiRoute: "http://localhost:5255/api/v1/",
+  chatRoute: "http://localhost:5255/chat"
 };
 
 /*
