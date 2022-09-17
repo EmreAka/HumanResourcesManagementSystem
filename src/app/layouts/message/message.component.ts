@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/services/auth.service';
@@ -10,7 +10,8 @@ import { MessageService } from 'src/app/services/message.service';
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.css']
 })
-export class MessageComponent implements OnInit {
+export class MessageComponent implements OnInit, AfterViewChecked {
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
   isOpen: boolean = false;
 
@@ -29,6 +30,9 @@ export class MessageComponent implements OnInit {
     private authService: AuthService,
     private fb: FormBuilder,
     public chatService: ChatserviceService) { }
+  ngAfterViewChecked(): void {
+    this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+  }
 
   ngOnInit(): void {
     if (this.authService.isAuthenticated()) {
@@ -44,6 +48,15 @@ export class MessageComponent implements OnInit {
         console.log(value)
       }
     })
+
+    this.chatService.subject.subscribe({
+      next: (value) => {
+        console.log("FromSubscription =>" + value.text);
+        this.messagesWithUser.push(value);
+        this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+      },
+      error: (err) => console.log("ERROR!")
+    });
   }
 
   createMessageForm() {
@@ -79,23 +92,24 @@ export class MessageComponent implements OnInit {
   showMessages(sender: string) {
     this.selectedMessage = this.messages.find(m => m.senderUserName === sender);
     this.getMyMessagesWithUser();
+    this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+  }
+
+  getMyMessagesWithUser() {
+    this.messageService.getMyMessagesWithUser(this.selectedMessage.senderUserId)
+      .subscribe({
+        next: (value) => {
+          this.messagesWithUser = value;
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      });
   }
 
   // getMyMessagesWithUser() {
-  //   this.messageService.getMyMessagesWithUser(this.selectedMessage.senderUserId)
-  //     .subscribe({
-  //       next: (value) => {
-  //         this.messagesWithUser = value;
-  //       },
-  //       error: (err) => {
-  //         console.log(err)
-  //       }
-  //     });
+  //   this.chatService.getMyMessagesWithUser(this.selectedMessage.senderUserId);
   // }
-
-  getMyMessagesWithUser() {
-    this.chatService.getMyMessagesWithUser(this.selectedMessage.senderUserId);
-  }
 
   // sendMessage() {
   //   const message: any = Object.assign(

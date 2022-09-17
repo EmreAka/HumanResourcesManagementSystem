@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HubConnectionBuilder } from '@microsoft/signalr';
 import { HubConnection } from '@microsoft/signalr/dist/esm/HubConnection';
-import { from, Observable, tap } from 'rxjs';
+import { BehaviorSubject, from, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { MessageReadDto } from '../models/messageReadDto';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,15 @@ import { environment } from 'src/environments/environment';
 export class ChatserviceService {
 
   private hubConnection: HubConnection
-  public messages: any[] = [];
   private connectionUrl = environment.chatRoute;
   // private apiUrl = 'https://localhost:44319/api/chat';
+
+  public messages: any[] = [];
+
+  // private message: MessageReadDto = {id: "", createdDate: null, };
+  private message: any = {};
+
+  public subject = new BehaviorSubject<any | null>(null);
 
   constructor(private http: HttpClient) { }
 
@@ -67,6 +74,7 @@ export class ChatserviceService {
     this.hubConnection.on("receiveMessage", (data: any) => {
       console.log("message received from Hub: " + data);
       this.messages.push(data);
+      this.subject.next(data);
     })
     this.hubConnection.on("newUserConnected", _ => {
       console.log("new user connected")
