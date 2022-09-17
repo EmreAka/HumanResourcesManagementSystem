@@ -15,11 +15,6 @@ export class ChatserviceService {
   private connectionUrl = environment.chatRoute;
   // private apiUrl = 'https://localhost:44319/api/chat';
 
-  public messages: any[] = [];
-
-  // private message: MessageReadDto = {id: "", createdDate: null, };
-  private message: any = {};
-
   public subject = new BehaviorSubject<any | null>(null);
 
   constructor(private http: HttpClient) { }
@@ -69,28 +64,13 @@ export class ChatserviceService {
   private addListeners() {
     this.hubConnection.on("messageReceivedFromApi", (data: any) => {
       console.log("message received from API Controller")
-      this.messages.push(data);
     })
     this.hubConnection.on("receiveMessage", (data: any) => {
       console.log("message received from Hub: " + data);
-      this.messages.push(data);
       this.subject.next(data);
     })
     this.hubConnection.on("newUserConnected", _ => {
       console.log("new user connected")
     })
-  }
-
-
-  getMyMessagesWithUser(senderId: string) {
-    this.http.get<any[]>(environment.apiRoute + `messages/${senderId}`)
-      .subscribe({
-        next: (value) => {
-          this.messages = value;
-        },
-        error: (err) => {
-          console.log(err)
-        }
-      });
   }
 }

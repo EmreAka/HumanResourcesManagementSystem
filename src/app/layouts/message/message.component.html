@@ -23,7 +23,12 @@
       <h5>{{ selectedMessage.senderUserName }}</h5>
       <i class="bi bi-x-lg" (click)="selectedMessage = null"></i>
     </div>
-    <div class="dm-messages" style="height: 18rem" #scrollMe>
+    <div
+      *ngIf="messagesWithUser"
+      class="dm-messages"
+      style="height: 18rem"
+      #scrollMe
+    >
       <div class="dm-message" *ngFor="let message of this.messagesWithUser">
         <h6>{{ message.senderUserName }}</h6>
         <p>

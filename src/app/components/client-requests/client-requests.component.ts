@@ -12,7 +12,7 @@ export class ClientRequestsComponent implements OnInit {
 
   clientRequests: ClientRequestRead[];
   constructor(private clientRequestService: ClientRequestService,
-  private spinner: NgxSpinnerService) { }
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getClientRequests();
@@ -24,7 +24,6 @@ export class ClientRequestsComponent implements OnInit {
       next: (value) => {
         this.clientRequests = value;
         this.spinner.hide();
-        console.log(this.clientRequests)
       },
       error: (err) => {
         console.log(err);

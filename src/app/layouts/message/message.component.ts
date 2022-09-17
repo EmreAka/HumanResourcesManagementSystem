@@ -31,7 +31,9 @@ export class MessageComponent implements OnInit, AfterViewChecked {
     private fb: FormBuilder,
     public chatService: ChatserviceService) { }
   ngAfterViewChecked(): void {
-    this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+    if (this.myScrollContainer) {
+      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+    }
   }
 
   ngOnInit(): void {
@@ -40,20 +42,14 @@ export class MessageComponent implements OnInit, AfterViewChecked {
       this.chatService.connect();
     }
 
-
     this.createMessageForm();
-
-    this.messageForm.valueChanges.subscribe({
-      next: (value) => {
-        console.log(value)
-      }
-    })
 
     this.chatService.subject.subscribe({
       next: (value) => {
-        console.log("FromSubscription =>" + value.text);
         this.messagesWithUser.push(value);
-        this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+        if (this.myScrollContainer) {
+          this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+        }
       },
       error: (err) => console.log("ERROR!")
     });
@@ -92,7 +88,9 @@ export class MessageComponent implements OnInit, AfterViewChecked {
   showMessages(sender: string) {
     this.selectedMessage = this.messages.find(m => m.senderUserName === sender);
     this.getMyMessagesWithUser();
-    this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+    if (this.myScrollContainer) {
+      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+    }
   }
 
   getMyMessagesWithUser() {
