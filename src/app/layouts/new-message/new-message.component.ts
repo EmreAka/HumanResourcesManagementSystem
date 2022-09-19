@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { MessageService } from 'src/app/services/message.service';
 
@@ -15,10 +16,21 @@ export class NewMessageComponent implements OnInit {
 
   messages: any[] | null;
 
-  constructor(private messageService: MessageService, private auth: AuthService) { }
+  messageForm: FormGroup;
+
+  constructor(private messageService: MessageService,
+    private auth: AuthService,
+    private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getUserNames();
+    this.createMessageForm();
+  }
+
+  createMessageForm() {
+    this.messageForm = this.fb.group({
+      text: [null, [Validators.required]]
+    });
   }
 
   getUserNames() {
@@ -42,6 +54,10 @@ export class NewMessageComponent implements OnInit {
         this.getUserName();
       }
     });
+  }
+
+  sendMessage() {
+    this.messageForm.reset();
   }
 
 }
