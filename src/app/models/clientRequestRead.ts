@@ -1,6 +1,7 @@
-export interface ClientRequestRead{
+export interface ClientRequestRead {
     id: string;
     userName: string;
+    userId: string;
     title: string;
     description: string;
     deadLine: string;

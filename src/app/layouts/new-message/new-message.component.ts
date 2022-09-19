@@ -53,14 +53,25 @@ export class NewMessageComponent implements OnInit {
   }
 
   getUserName(): string {
-    const m = this.messages!
-      .find(m => m.receiverUserId == this.auth.decodedToken["UserId"]);
-    return m.senderUserName;
+    // var m = this.messages!
+    //   .find(m => m.receiverUserId == this.auth.decodedToken["UserId"]);
+    // if (m) {
+    //   m = this.messages!
+    //     .find(m => m.senderUserId == this.auth.decodedToken["UserId"]);
+    //   return m.receiverUserName;
+    // }
+    // return m.senderUserName;
+    return "PATLADIK"
   }
 
   getReceiverId(): string {
-    const m = this.messages!
+    var m = this.messages!
       .find(m => m.receiverUserId == this.auth.decodedToken["UserId"]);
+    if (!m) {
+      m = this.messages!
+        .find(m => m.senderUserId == this.auth.decodedToken["UserId"]);
+      return m.receiverUserId;
+    }
     return m.senderUserId;
   }
 
@@ -68,6 +79,7 @@ export class NewMessageComponent implements OnInit {
     this.messageService.getMyMessagesWithUser(userId).subscribe({
       next: (value) => {
         this.messages = value;
+        debugger;
         this.getUserName();
       }
     });
