@@ -1,18 +1,18 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoginCredentials } from '../models/loginCredentials';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Token } from '../models/token';
 import { DecodedToken } from '../models/decodedToken';
-import {  JwtHelperService  } from '@auth0/angular-jwt';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  decodedToken: DecodedToken = {Token: "", DecodedToken: "", Expiration: 0, Email: "", Name: "", Role: "", Roles: [], UserId: 0};
+  decodedToken: DecodedToken = { Token: "", DecodedToken: "", Expiration: 0, Email: "", Name: "", Role: "", Roles: [], UserId: "" };
 
   constructor(private httpClient: HttpClient, private jwtHelperService: JwtHelperService) {
   }
@@ -29,7 +29,7 @@ export class AuthService {
         this.getUserDetailsFromToken();
         return true;
       }
-    this.decodedToken = {Token: "", DecodedToken: "", Expiration: 0, Email: "", Name: "", Role: "", Roles: [], UserId: 0};
+    this.decodedToken = { Token: "", DecodedToken: "", Expiration: 0, Email: "", Name: "", Role: "", Roles: [], UserId: "" };
     return false;
   }
 
@@ -43,6 +43,6 @@ export class AuthService {
     this.decodedToken['Role'] = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
     this.decodedToken['Roles'] = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
     this.decodedToken['Email'] = decodedToken['email'];
-    this.decodedToken['UserId'] = parseInt(decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier']);
+    this.decodedToken['UserId'] = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
   }
 }

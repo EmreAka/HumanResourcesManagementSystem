@@ -1,10 +1,10 @@
-export interface DecodedToken{
+export interface DecodedToken {
   Token: string | null;
-  DecodedToken:string;
+  DecodedToken: string;
   Expiration: number;
   Name: string;
   Role: string;
   Roles: string[];
   Email: string;
-  UserId: number;
+  UserId: string;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { MessageService } from 'src/app/services/message.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class NewMessageComponent implements OnInit {
 
   messages: any[];
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.getUserNames();
@@ -28,11 +29,17 @@ export class NewMessageComponent implements OnInit {
     });
   }
 
+  getUserName(): string {
+    const m = this.messages
+      .find(m => m.receiverUserId == this.auth.decodedToken["UserId"]);
+    return m.senderUserName;
+  }
+
   getMessagesWithAUser(userId: string) {
     this.messageService.getMyMessagesWithUser(userId).subscribe({
       next: (value) => {
         this.messages = value;
-        debugger;
+        this.getUserName();
       }
     });
   }

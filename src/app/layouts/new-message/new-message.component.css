@@ -71,3 +71,86 @@
     border-bottom: #3E497A 1px solid;
     padding: 1rem;
 }
+
+/* DM */
+.dm {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    bottom: 0;
+    right: 300px;
+    background-color: #21325E;
+    width: 24rem;
+    height: 25rem;
+}
+
+.dm h5 {
+    color: white;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+}
+
+.dm-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+    width: 100%;
+    background-color: #16213E;
+}
+
+.dm-header i {
+    color: white;
+    margin-right: 1rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.dm-messages {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-self: self-start;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 0 1rem 0rem 1rem;
+    row-gap: 0.6rem;
+}
+
+.input-container {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: #3E497A;
+}
+
+.input-container .input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.input-container .input::placeholder {
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #16213E;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #3E497A;
+    border-radius: 2.5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #3E497A;
+}
