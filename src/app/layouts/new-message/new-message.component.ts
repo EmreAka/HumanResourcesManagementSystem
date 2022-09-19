@@ -13,7 +13,7 @@ export class NewMessageComponent implements OnInit {
 
   userNames: any[];
 
-  messages: any[];
+  messages: any[] | null;
 
   constructor(private messageService: MessageService, private auth: AuthService) { }
 
@@ -30,7 +30,7 @@ export class NewMessageComponent implements OnInit {
   }
 
   getUserName(): string {
-    const m = this.messages
+    const m = this.messages!
       .find(m => m.receiverUserId == this.auth.decodedToken["UserId"]);
     return m.senderUserName;
   }
