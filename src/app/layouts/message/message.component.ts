@@ -105,24 +105,6 @@ export class MessageComponent implements OnInit, AfterViewChecked {
       });
   }
 
-  // getMyMessagesWithUser() {
-  //   this.chatService.getMyMessagesWithUser(this.selectedMessage.senderUserId);
-  // }
-
-  // sendMessage() {
-  //   const message: any = Object.assign(
-  //     { receiverUserId: this.selectedMessage.senderUserId }, this.messageForm.value)
-  //   this.messageService.sendMessage(message).subscribe({
-  //     next: (value) => {
-  //       console.log("Success");
-  //       this.messageForm.reset();
-  //     },
-  //     error: (err) => {
-  //       console.log(err);
-  //     }
-  //   });
-  // }
-
   sendMessage() {
     const message: any = Object.assign(
       { receiverUserId: this.selectedMessage.senderUserId }, this.messageForm.value)
