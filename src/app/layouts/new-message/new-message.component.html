@@ -1,1 +1,5 @@
-<p>new-message works!</p>
+<!-- MESSAGES -->
+<div class="container" *ngIf="!isMessagesOpen" (click)="isMessagesOpen = true">
+  <p>Messages</p>
+  <i class="bi bi-chat-fill"></i>
+</div>
