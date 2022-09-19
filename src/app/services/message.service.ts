@@ -21,4 +21,8 @@ export class MessageService {
   sendMessage(message: any): Observable<any> {
     return this.httpClient.post<any>(environment.apiRoute + "messages", message);
   }
+
+  getUserNames(): Observable<any[]> {
+    return this.httpClient.get<any[]>(environment.apiRoute + "messages/usernames");
+  }
 }
