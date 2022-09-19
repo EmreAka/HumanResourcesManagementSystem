@@ -15,9 +15,13 @@ export class NewMessageComponent implements OnInit {
 
   userNames: any[];
 
+  userNameOfSelectedUser: string;
+
   messages: any[] | null;
 
   messageForm: FormGroup;
+
+
 
   constructor(private messageService: MessageService,
     private auth: AuthService,
@@ -53,15 +57,7 @@ export class NewMessageComponent implements OnInit {
   }
 
   getUserName(): string {
-    // var m = this.messages!
-    //   .find(m => m.receiverUserId == this.auth.decodedToken["UserId"]);
-    // if (m) {
-    //   m = this.messages!
-    //     .find(m => m.senderUserId == this.auth.decodedToken["UserId"]);
-    //   return m.receiverUserName;
-    // }
-    // return m.senderUserName;
-    return "PATLADIK"
+    return this.userNameOfSelectedUser;
   }
 
   getReceiverId(): string {
