@@ -13,7 +13,7 @@
   <ul class="messages">
     <li class="message" *ngFor="let user of this.userNames">
       <div>
-        <h5 (click)="this.showMessagesWithAUser(user.id)">
+        <h5 (click)="this.getMessagesWithAUser(user.id)">
           {{ user.userName }}
         </h5>
       </div>

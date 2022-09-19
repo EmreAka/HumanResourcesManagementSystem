@@ -28,14 +28,11 @@ export class NewMessageComponent implements OnInit {
     });
   }
 
-  showMessagesWithAUser(userId: string) {
-    console.log(userId);
-  }
-
   getMessagesWithAUser(userId: string) {
     this.messageService.getMyMessagesWithUser(userId).subscribe({
       next: (value) => {
         this.messages = value;
+        debugger;
       }
     });
   }
