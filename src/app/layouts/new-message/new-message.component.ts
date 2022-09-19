@@ -28,6 +28,14 @@ export class NewMessageComponent implements OnInit {
     this.getUserNames();
     this.createMessageForm();
     this.chatService.connect();
+
+    this.chatService.subject.subscribe({
+      next: (value) => {
+        if (this.messages) {
+          this.messages.push(value)
+        }
+      }
+    });
   }
 
   createMessageForm() {
