@@ -11,9 +11,9 @@
     <i class="bi bi-x-lg" (click)="isMessagesOpen = false"></i>
   </div>
   <ul class="messages">
-    <li class="message">
+    <li class="message" *ngFor="let user of this.userNames">
       <div>
-        <h5>TEST</h5>
+        <h5>{{ user.userName }}</h5>
       </div>
     </li>
   </ul>
