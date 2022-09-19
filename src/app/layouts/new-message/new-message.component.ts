@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { ChatserviceService } from 'src/app/services/chatservice.service';
 import { MessageService } from 'src/app/services/message.service';
 
 @Component({
@@ -20,11 +21,13 @@ export class NewMessageComponent implements OnInit {
 
   constructor(private messageService: MessageService,
     private auth: AuthService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private chatService: ChatserviceService) { }
 
   ngOnInit(): void {
     this.getUserNames();
     this.createMessageForm();
+    this.chatService.connect();
   }
 
   createMessageForm() {
@@ -47,6 +50,12 @@ export class NewMessageComponent implements OnInit {
     return m.senderUserName;
   }
 
+  getReceiverId(): string {
+    const m = this.messages!
+      .find(m => m.receiverUserId == this.auth.decodedToken["UserId"]);
+    return m.senderUserId;
+  }
+
   getMessagesWithAUser(userId: string) {
     this.messageService.getMyMessagesWithUser(userId).subscribe({
       next: (value) => {
@@ -57,7 +66,12 @@ export class NewMessageComponent implements OnInit {
   }
 
   sendMessage() {
-    this.messageForm.reset();
+    const message: any = Object.assign(
+      { receiverUserId: this.getReceiverId() }, this.messageForm.value)
+    this.chatService.sendMessageToHub(message).subscribe({
+      next: (value) => this.messageForm.reset(),
+      error: (err) => console.log(err)
+    })
   }
 
 }
