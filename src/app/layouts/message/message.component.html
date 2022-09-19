@@ -1,8 +1,10 @@
+<!-- MESSAGES -->
 <div class="container" *ngIf="!isOpen" (click)="isOpen = true">
   <p>Messages</p>
   <i class="bi bi-chat-fill"></i>
 </div>
 
+<!-- USER NAMES -->
 <div class="container-messages" *ngIf="isOpen">
   <div class="title">
     <h4>Messages</h4>
@@ -17,6 +19,7 @@
   </ul>
 </div>
 
+<!-- DM -->
 <div class="dm" *ngIf="selectedMessage">
   <div>
     <div class="dm-header">
@@ -47,13 +50,4 @@
       (keyup.enter)="sendMessage()"
     />
   </form>
-  <!-- <div class="input-container">
-    <input
-      type="text"
-      class="input"
-      placeholder="enter message"
-      [(ngModel)]="message"
-      (keyup.enter)="sendMessage()"
-    />
-  </div> -->
 </div>

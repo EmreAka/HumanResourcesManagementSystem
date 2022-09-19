@@ -26,6 +26,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { MySpecialClientRequestsComponent } from './components/my-special-client-requests/my-special-client-requests.component';
 import { CreateSpecialClientRequestComponent } from './components/create-special-client-request/create-special-client-request.component';
 import { MessageComponent } from './layouts/message/message.component';
+import { NewMessageComponent } from './layouts/new-message/new-message.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { MessageComponent } from './layouts/message/message.component';
     MySpecialClientRequestsComponent,
     CreateSpecialClientRequestComponent,
     MessageComponent,
+    NewMessageComponent,
   ],
   imports: [
     BrowserModule,
