@@ -12,6 +12,8 @@ export class NewMessageComponent implements OnInit {
 
   userNames: any[];
 
+  messages: any[];
+
   constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
@@ -22,6 +24,18 @@ export class NewMessageComponent implements OnInit {
     this.messageService.getUserNames().subscribe({
       next: (value) => {
         this.userNames = value;
+      }
+    });
+  }
+
+  showMessagesWithAUser(userId: string) {
+    console.log(userId);
+  }
+
+  getMessagesWithAUser(userId: string) {
+    this.messageService.getMyMessagesWithUser(userId).subscribe({
+      next: (value) => {
+        this.messages = value;
       }
     });
   }
