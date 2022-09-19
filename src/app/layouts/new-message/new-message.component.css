@@ -1,3 +1,4 @@
+/* MESSAGES */
 .container {
     position: fixed;
     display: flex;
@@ -20,4 +21,53 @@
 .container i {
     color: white;
     margin-right: 1rem;
+}
+
+/* USER NAMES */
+.container-messages {
+    overflow: auto;
+    width: 17rem;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: #21325E;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.container-messages h4 {
+    color: white;
+}
+
+.messages {
+    list-style: none;
+    color: white;
+    margin: 5rem 0 0 0;
+    padding: 0;
+}
+
+.title {
+    position: fixed;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #21325E;
+    z-index: 3;
+    width: 230px;
+}
+
+.title i {
+    color: white;
+    cursor: pointer;
+}
+
+.message h5 {
+    cursor: pointer;
+    border-top: #3E497A 1px solid;
+    border-bottom: #3E497A 1px solid;
+    padding: 1rem;
 }

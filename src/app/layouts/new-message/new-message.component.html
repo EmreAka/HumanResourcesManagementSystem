@@ -3,3 +3,18 @@
   <p>Messages</p>
   <i class="bi bi-chat-fill"></i>
 </div>
+
+<!-- USER NAMES -->
+<div class="container-messages" *ngIf="isMessagesOpen">
+  <div class="title">
+    <h4>Messages</h4>
+    <i class="bi bi-x-lg" (click)="isMessagesOpen = false"></i>
+  </div>
+  <ul class="messages">
+    <li class="message">
+      <div>
+        <h5>TEST</h5>
+      </div>
+    </li>
+  </ul>
+</div>
