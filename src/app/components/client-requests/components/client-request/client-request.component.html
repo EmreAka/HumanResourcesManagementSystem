@@ -1,31 +1,51 @@
 <div class="client-request">
   <div class="client-request-header">
-    <p style="margin-left: 1rem; font-weight: 600;">{{this.clientRequest.userName}}</p>
+    <p style="margin-left: 1rem; font-weight: 600">
+      {{ this.clientRequest.userName }}
+    </p>
     <div>
-      <button class="send-message">Send Message</button>
+      <button class="send-message" (click)="startAConversation()">
+        Send Message
+      </button>
       <button class="send-offer">Propose</button>
     </div>
   </div>
   <div class="client-request-content">
-    <div class="client-request-content-title">{{this.clientRequest.title}}</div>
+    <div class="client-request-content-title">
+      {{ this.clientRequest.title }}
+    </div>
     <div class="client-request-content-description">
-      {{this.clientRequest.description}}
+      {{ this.clientRequest.description }}
     </div>
   </div>
   <div class="client-request-footer">
-    <div class="history">{{this.clientRequest.createdDate | date}}</div>
+    <div class="history">{{ this.clientRequest.createdDate | date }}</div>
     <div class="client-request-footer-description">
       <div class="client-request-footer-description-item">
-        <i class="bi bi-wallet2" style="font-size: 1.5rem; margin-right: 0.7rem;"></i>
-        Budget: <span style="font-weight: 600;">{{this.clientRequest.budget | currency}}</span>
+        <i
+          class="bi bi-wallet2"
+          style="font-size: 1.5rem; margin-right: 0.7rem"
+        ></i>
+        Budget:
+        <span style="font-weight: 600">{{
+          this.clientRequest.budget | currency
+        }}</span>
       </div>
       <div class="client-request-footer-description-item">
-        <i class="bi bi-stopwatch" style="font-size: 1.5rem; margin-right: 0.7rem;"></i>
-        Deadline: <span style="font-weight: 600;">{{this.clientRequest.deadLine}}</span>
+        <i
+          class="bi bi-stopwatch"
+          style="font-size: 1.5rem; margin-right: 0.7rem"
+        ></i>
+        Deadline:
+        <span style="font-weight: 600">{{ this.clientRequest.deadLine }}</span>
       </div>
       <div class="client-request-footer-description-item">
-        <i class="bi bi-star" style="font-size: 1.5rem; margin-right: 0.7rem;"></i>
-        Proposals: <span style="font-weight: 600;">{{this.clientRequest.offers}}</span>
+        <i
+          class="bi bi-star"
+          style="font-size: 1.5rem; margin-right: 0.7rem"
+        ></i>
+        Proposals:
+        <span style="font-weight: 600">{{ this.clientRequest.offers }}</span>
       </div>
     </div>
   </div>

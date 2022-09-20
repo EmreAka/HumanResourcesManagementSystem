@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ChatserviceService } from 'src/app/services/chatservice.service';
@@ -9,20 +9,31 @@ import { MessageService } from 'src/app/services/message.service';
   templateUrl: './new-message.component.html',
   styleUrls: ['./new-message.component.css']
 })
-export class NewMessageComponent implements OnInit {
+export class NewMessageComponent implements OnInit, AfterViewChecked {
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
   isMessagesOpen: boolean = false;
 
   userNames: any[];
 
+  userNameOfSelectedUser: string;
+
   messages: any[] | null;
 
   messageForm: FormGroup;
+
+
 
   constructor(private messageService: MessageService,
     private auth: AuthService,
     private fb: FormBuilder,
     private chatService: ChatserviceService) { }
+
+  ngAfterViewChecked(): void {
+    if (this.myScrollContainer) {
+      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+    }
+  }
 
   ngOnInit(): void {
     this.getUserNames();
@@ -53,14 +64,17 @@ export class NewMessageComponent implements OnInit {
   }
 
   getUserName(): string {
-    const m = this.messages!
-      .find(m => m.receiverUserId == this.auth.decodedToken["UserId"]);
-    return m.senderUserName;
+    return this.userNameOfSelectedUser;
   }
 
   getReceiverId(): string {
-    const m = this.messages!
+    var m = this.messages!
       .find(m => m.receiverUserId == this.auth.decodedToken["UserId"]);
+    if (!m) {
+      m = this.messages!
+        .find(m => m.senderUserId == this.auth.decodedToken["UserId"]);
+      return m.receiverUserId;
+    }
     return m.senderUserId;
   }
 
@@ -68,6 +82,7 @@ export class NewMessageComponent implements OnInit {
     this.messageService.getMyMessagesWithUser(userId).subscribe({
       next: (value) => {
         this.messages = value;
+        debugger;
         this.getUserName();
       }
     });
