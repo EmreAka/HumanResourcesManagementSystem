@@ -25,7 +25,7 @@ export class ClientRequestComponent implements OnInit {
   }
 
   openProposalModal() {
-    this.proposalService.openModel();
+    this.proposalService.openModel({ clientRequestId: this.clientRequest.id, clientId: this.clientRequest.userId });
   }
 
 }

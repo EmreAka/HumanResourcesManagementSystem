@@ -14,7 +14,55 @@
 <div id="myModal" [ngClass]="getClass()">
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close" (click)="closeProposalModal()">&times;</span>
-    <p>Some text in the Modal..</p>
+    <!-- <span class="close" (click)="closeProposalModal()">&times;</span> -->
+    <div class="header">
+      <h3>Send a proposal</h3>
+      <i class="bi bi-x-lg cross" (click)="closeProposalModal()"></i>
+    </div>
+    <div class="content">
+      <form [formGroup]="proposalForm">
+        <h3>Your message</h3>
+        <div class="client-request-title-container">
+          <textarea
+            formControlName="message"
+            style="resize: vertical"
+            class="client-request-title"
+            placeholder="Can You write what You need a developer for?"
+          ></textarea>
+        </div>
+
+        <h3 class="page-title">Your budget.</h3>
+        <div class="client-request-title-container">
+          <input
+            formControlName="budget"
+            type="number"
+            class="client-request-title"
+            placeholder="Can you enter your budget?"
+          />
+        </div>
+
+        <h3 class="page-title">
+          How long It will take you to complete the project?
+        </h3>
+        <select
+          formControlName="deadlineId"
+          style="
+            padding: 1rem;
+            margin-top: 1rem;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            border: #f1d00a 1px solid;
+            outline: none;
+          "
+        >
+          <option selected disabled>Select A Deadline</option>
+          <option *ngFor="let deadline of deadlines" [ngValue]="deadline.id">
+            {{ deadline.name }}
+          </option>
+        </select>
+      </form>
+      <button class="button" (click)="addProposal()">Send proposal</button>
+    </div>
   </div>
 </div>
