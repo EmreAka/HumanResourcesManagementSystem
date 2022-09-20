@@ -82,7 +82,6 @@ export class NewMessageComponent implements OnInit, AfterViewChecked {
     this.messageService.getMyMessagesWithUser(userId).subscribe({
       next: (value) => {
         this.messages = value;
-        debugger;
         this.getUserName();
       }
     });
