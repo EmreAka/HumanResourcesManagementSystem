@@ -23,6 +23,6 @@ export class ProposalService {
   }
 
   getMyProposals(): Observable<ProposalReadDto[]> {
-    return this.httpClient.get<ProposalReadDto[]>(environment.apiRoute + "/proposals");
+    return this.httpClient.get<ProposalReadDto[]>(environment.apiRoute + "proposals");
   }
 }
