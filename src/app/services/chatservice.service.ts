@@ -12,7 +12,7 @@ import { MessageReadDto } from '../models/messageReadDto';
 export class ChatserviceService {
 
   private hubConnection: HubConnection
-  private connectionUrl = environment.chatRoute;
+  private connectionUrl = environment.chatRoute + '?Authorization' + '=' + localStorage.getItem('token');
   // private apiUrl = 'https://localhost:44319/api/chat';
 
   public subject = new BehaviorSubject<any | null>(null);
@@ -39,9 +39,10 @@ export class ChatserviceService {
 
   private getConnection(): HubConnection {
     return new HubConnectionBuilder()
-      .withUrl(this.connectionUrl, { accessTokenFactory: () => <string>localStorage.getItem('token') })
+      // .withUrl(this.connectionUrl, { accessTokenFactory: () => <string>localStorage.getItem('token') })
       // .withHubProtocol(new MessagePackHubProtocol())
       //  .configureLogging(LogLevel.Trace)
+      .withUrl(this.connectionUrl)
       .build();
   }
 
