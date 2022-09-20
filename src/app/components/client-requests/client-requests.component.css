@@ -2,8 +2,25 @@
   border: 0px solid #3E497A;
   border-bottom-width: 3px;
   cursor: pointer;
+  width: 422px;
+  height: 100px;
+  text-align: center;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .part-two {
   cursor: pointer;
+  opacity: 0.6;
+  width: 422px;
+  height: 100px;
+  text-align: center;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

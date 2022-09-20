@@ -28,6 +28,20 @@ export class ClientRequestsComponent implements OnInit {
     })
   }
 
+  getClassOne(): string {
+    if (!this.showClientRequestsUserMadeAnOffer) {
+      return "part-one"
+    }
+    return "part-two"
+  }
+
+  getClassTwo(): string {
+    if (this.showClientRequestsUserMadeAnOffer) {
+      return "part-one"
+    }
+    return "part-two"
+  }
+
   getRequestsUserMadeAnOffer() {
     this.spinner.show();
     this.clientRequestService.getClientRequestsUserMadeAnOffer().subscribe({

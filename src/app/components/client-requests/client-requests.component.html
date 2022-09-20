@@ -4,17 +4,7 @@
   </h1>
   <div style="display: flex; flex-direction: row">
     <div
-      class="part-one"
-      style="
-        width: 422px;
-        height: 100px;
-        text-align: center;
-        background-color: white;
-        color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      "
+      [ngClass]="getClassOne()"
       (click)="
         getClientRequests(); this.showClientRequestsUserMadeAnOffer = false
       "
@@ -22,18 +12,7 @@
       Show All Client Requests
     </div>
     <div
-      class="part-two"
-      style="
-        opacity: 0.6;
-        width: 422px;
-        height: 100px;
-        text-align: center;
-        background-color: white;
-        color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      "
+      [ngClass]="getClassTwo()"
       (click)="
         getRequestsUserMadeAnOffer();
         this.showClientRequestsUserMadeAnOffer = true
@@ -47,6 +26,7 @@
     <app-client-request
       *ngFor="let request of clientRequests"
       [clientRequest]="request"
+      [showClientRequestsUserMadeAnOffer]="showClientRequestsUserMadeAnOffer"
     >
     </app-client-request>
   </div>

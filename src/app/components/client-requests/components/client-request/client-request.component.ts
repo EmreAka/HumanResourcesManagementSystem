@@ -11,6 +11,7 @@ import { ProposalService } from 'src/app/services/proposal.service';
 export class ClientRequestComponent implements OnInit {
 
   @Input() clientRequest: ClientRequestRead;
+  @Input() showClientRequestsUserMadeAnOffer: boolean;
 
   constructor(private messageService: MessageService,
     private proposalService: ProposalService) { }
