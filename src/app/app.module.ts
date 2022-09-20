@@ -27,6 +27,7 @@ import { MySpecialClientRequestsComponent } from './components/my-special-client
 import { CreateSpecialClientRequestComponent } from './components/create-special-client-request/create-special-client-request.component';
 import { MessageComponent } from './layouts/message/message.component';
 import { NewMessageComponent } from './layouts/new-message/new-message.component';
+import { ProposalComponent } from './layouts/home-layout/proposal/proposal.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { NewMessageComponent } from './layouts/new-message/new-message.component
     CreateSpecialClientRequestComponent,
     MessageComponent,
     NewMessageComponent,
+    ProposalComponent,
   ],
   imports: [
     BrowserModule,
