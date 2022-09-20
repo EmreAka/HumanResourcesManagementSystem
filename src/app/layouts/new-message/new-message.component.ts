@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ChatserviceService } from 'src/app/services/chatservice.service';
@@ -9,7 +9,8 @@ import { MessageService } from 'src/app/services/message.service';
   templateUrl: './new-message.component.html',
   styleUrls: ['./new-message.component.css']
 })
-export class NewMessageComponent implements OnInit {
+export class NewMessageComponent implements OnInit, AfterViewChecked {
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
   isMessagesOpen: boolean = false;
 
@@ -27,6 +28,12 @@ export class NewMessageComponent implements OnInit {
     private auth: AuthService,
     private fb: FormBuilder,
     private chatService: ChatserviceService) { }
+
+  ngAfterViewChecked(): void {
+    if (this.myScrollContainer) {
+      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+    }
+  }
 
   ngOnInit(): void {
     this.getUserNames();
