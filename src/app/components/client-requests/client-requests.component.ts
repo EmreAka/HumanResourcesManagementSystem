@@ -12,6 +12,7 @@ import { ProposalReadDto } from 'src/app/models/proposalReadDto';
 })
 export class ClientRequestsComponent implements OnInit {
 
+  showClientRequestsUserMadeAnOffer: boolean = false;
   clientRequests: ClientRequestRead[];
   proposals: ProposalReadDto[];
   constructor(private clientRequestService: ClientRequestService,
@@ -23,9 +24,19 @@ export class ClientRequestsComponent implements OnInit {
     this.proposalService.getMyProposals().subscribe({
       next: (value) => {
         this.proposals = value;
-        debugger;
       }
     })
+  }
+
+  getRequestsUserMadeAnOffer() {
+    this.spinner.show();
+    this.clientRequestService.getClientRequestsUserMadeAnOffer().subscribe({
+      next: (value) => {
+        this.clientRequests = value;
+        this.spinner.hide();
+      },
+      error: (err) => { console.log(err); this.spinner.hide }
+    });
   }
 
   getClientRequests() {

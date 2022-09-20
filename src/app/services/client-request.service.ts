@@ -17,10 +17,14 @@ export class ClientRequestService {
       (environment.apiRoute + "clientrequests/GetAllRequestClientsWithDetails");
   }
 
-  getClientRequestsByUserId(): Observable<ClientRequestRead[]>{
+  getClientRequestsByUserId(): Observable<ClientRequestRead[]> {
     return this.httpClient.get<ClientRequestRead[]>(
       environment.apiRoute + "clientrequests/GetAllRequestClientsWithDetailsWithUserId"
     );
+  }
+
+  getClientRequestsUserMadeAnOffer(): Observable<ClientRequestRead[]> {
+    return this.httpClient.get<ClientRequestRead[]>(environment.apiRoute + "clientrequests/GetAllRequestClientsUserPropose");
   }
 
   deleteClientRequest(id: string) {
