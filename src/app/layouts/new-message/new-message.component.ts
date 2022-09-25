@@ -47,6 +47,21 @@ export class NewMessageComponent implements OnInit, AfterViewChecked {
         }
       }
     });
+
+    this.messageService.isAConversationStarted.subscribe({
+      next: (value) => {
+        if (value.status) {
+          this.getUserNames();
+          this.getMessagesWithAUser(value.userId);
+          this.userNameOfSelectedUser = value.userName;
+          this.isMessagesOpen = true;
+          // this.messageService.conversationIsStarted();
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
   createMessageForm() {

@@ -21,7 +21,11 @@ export class ClientRequestComponent implements OnInit {
 
   startAConversation() {
     this.messageService.sendMessage({ receiverUserId: this.clientRequest.userId, text: "Hello!" })
-      .subscribe();
+      .subscribe({
+        next: (value) => {
+          this.messageService.startAConversation(this.clientRequest.userId, this.clientRequest.userName);
+        }
+      });
   }
 
   openProposalModal() {
