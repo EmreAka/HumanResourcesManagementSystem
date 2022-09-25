@@ -1,31 +1,33 @@
 <nav class="nav-container">
-  <h1 class="nav-title" routerLink="/">HRMS</h1>
-  <div class="search-container">
-    <i class="bi bi-search"></i>
-    <input placeholder="Search..." class="nav-search" />
-  </div>
-  <div class="nav-end" *ngIf="!authService.isAuthenticated()">
-    <button class="nav-login" [routerLink]="['/auth/login']">Login</button>
-    <button class="nav-register" [routerLink]="['/auth/register']">
-      Register
-    </button>
-  </div>
-  <div
-    class="nav-end"
-    style="align-items: center"
-    *ngIf="authService.isAuthenticated()"
-  >
-    <div class="dropdown">
-      <div class="dropbtn">
-        {{ this.getUserEmail() }} <i class="bi bi-arrow-down"></i>
-      </div>
-      <div class="dropdown-content">
-        <a><i class="bi bi-person-fill"></i>My Profile</a>
-        <a><i class="bi bi-gear-fill"></i>My Account</a>
-        <a (click)="logout()"><i class="bi bi-door-closed-fill"></i>Logout</a>
-      </div>
+  <div class="test">
+    <h1 class="nav-title" routerLink="/">HRMS</h1>
+    <div class="search-container">
+      <i class="bi bi-search"></i>
+      <input placeholder="Search..." class="nav-search" />
     </div>
+    <div class="nav-end" *ngIf="!authService.isAuthenticated()">
+      <button class="nav-login" [routerLink]="['/auth/login']">Login</button>
+      <button class="nav-register" [routerLink]="['/auth/register']">
+        Register
+      </button>
+    </div>
+    <div
+      class="nav-end"
+      style="align-items: center"
+      *ngIf="authService.isAuthenticated()"
+    >
+      <div class="dropdown">
+        <div class="dropbtn">
+          {{ this.getUserEmail() }} <i class="bi bi-arrow-down"></i>
+        </div>
+        <div class="dropdown-content">
+          <a><i class="bi bi-person-fill"></i>My Profile</a>
+          <a><i class="bi bi-gear-fill"></i>My Account</a>
+          <a (click)="logout()"><i class="bi bi-door-closed-fill"></i>Logout</a>
+        </div>
+      </div>
 
-    <!-- <button class="nav-register" (click)="logout()">Logout</button> -->
+      <!-- <button class="nav-register" (click)="logout()">Logout</button> -->
+    </div>
   </div>
 </nav>
