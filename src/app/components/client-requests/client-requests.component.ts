@@ -49,7 +49,10 @@ export class ClientRequestsComponent implements OnInit {
         this.clientRequests = value;
         this.spinner.hide();
       },
-      error: (err) => { console.log(err); this.spinner.hide }
+      error: (err) => {
+        console.log(err);
+        this.spinner.hide;
+      }
     });
   }
 
